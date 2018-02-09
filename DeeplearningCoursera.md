@@ -16,7 +16,7 @@ Neural Network Representation,  Activation functions, Derivatives of activation 
 
 Deep L-layer neural network, Forward Propagation in a Deep Network, Building blocks of deep neural networks, Forward and Backward Propagation, Parameters vs Hyperparameters, 
 
-# 2. Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization （Feb 5 complete）
+# 2. Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization （Feb 15 complete）
 ### Week 1. Practical aspects of Deep Learning
 
 Train / Dev / Test sets,Bias / Variance, Basic Recipe for Machine Learning,Regularization,Dropout Regularization, Other regularization methods, Normalizing inputs, Vanishing / Exploding gradients, Weight Initialization for Deep Networks, Numerical approximation of gradients, Gradient checking, Gradient Checking Implementation Notes, Initialization, Regularization,Gradient Checking
