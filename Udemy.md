@@ -1,7 +1,22 @@
-## 1. Bayesian A/B Testing （Feb 15 2018）
+## 1. Bayesian A/B Testing （Feb 15 2018）LayProgrammer's course
+
+Code: https://github.com/ritaxiaotian/machine_learning_examples
+
 There are many interesting statistical concenpts in this course: The Monty Hall problem, imbalanced likelihood-Mean of a Gaussian, confidence intervals, etc.
 #### Week 1 Introduction and outline
 #### Week 2 Bayes Rules and Probability review
+Bayes Rule
+
+Monty Hall
+
+Imbalanced Classes
+
+Maximum Likelihood-Mean of a Gaussian
+
+Confidence intervals
+
+Bayesian Paradigm
+
 #### Week 3 Traditional A/B Testing
 test characteriztics, assumptions, and modifications
 
