@@ -1,4 +1,4 @@
-## 1. A/B Testing （Feb 15 2018）
+## 1. Bayesian A/B Testing （Feb 15 2018）
 ## 2. Hadoop
 ## 3. NLP
 ## 4. Spark
