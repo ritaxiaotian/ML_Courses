@@ -11,9 +11,11 @@ Monty Hall
 
 Imbalanced Classes
 
-Maximum Likelihood-Mean of a Gaussian
+Maximum Likelihood-Mean of a Gaussian: problem: unceritainty: give no information of whether we have collected enough data
 
-Confidence intervals
+Maximum Likelihood-Click Through Rate: frequentist way(Confidence Interval) v.s. Bayesian way
+
+Confidence intervals:
 
 Bayesian Paradigm
 
