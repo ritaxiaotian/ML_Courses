@@ -16,8 +16,9 @@ c. click through rate = number of clicks /number of page views
 
 ##### d. click through probability = unique visitors who click / unique visitors to page (good)
 
-##### Updated hypothesis: Changing the "start Now" button from orange to Pink will increase the click-through-probability of the button
+##### Case: Updated hypothesis: Changing the "start Now" button from orange to Pink will increase the click-through-probability of the button
 
+###### Rate: usability; probability: impact
 
 2. Review statistics
 
