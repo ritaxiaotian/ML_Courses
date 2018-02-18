@@ -38,4 +38,29 @@ In practice, an A/B test can be summarized into the 5 steps below:
 4. take sample for control/treatment groups and run the test
 
 5. Analyze the results and draw valid conclusions
+
+### week 2 policy and ethics for experiments
+
+
+### week 3 Choosing and Characterizing metrics
+
+##### 1. Metrics for Experiments
+##### 2. Define
+##### 3. Build intuition
+##### 4. Characterize
+
+### Week 4 Design an Experiments
+
+##### 1. Choose Subject
+Assign the event to the Control or the Experiment
+##### 2. Choose Population
+##### 3. Size
+##### 4. Duration
+
+### Week 5 Analyzing results
+
+### Week 6 Final Project
+
+
+
  
