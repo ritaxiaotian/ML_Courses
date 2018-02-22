@@ -42,4 +42,22 @@ Carrying out error analysis,Cleaning up incorrectly labeled data,Build your firs
 
 ## 4. Convolutional Neural Networks （Feb 25 COMPLETE）
 
+### Week 1. Convolutional Neural Networks
+**CONVOLVE** the original image matrix using a **kernel/ filter matrix** (6*6 conv 3*3 = (6-3+1)*(6-3+1))
+
+vertical edge detection matix
+1 0 -1
+1 0 -1
+1 0 -1
+### Week 2. Deep convolutional models: case studies
+
+
+
+
+### Week 3. Object detection
+
+
+
+
+### Week 4. Special applications: Face recognition & Neural style transfer
 ## 5. Sequence Models （Mar 1 - Mar. 15)
