@@ -40,6 +40,6 @@ Why ML Strategy,Orthogonalization,Single number evaluation metric,Satisficing an
 Carrying out error analysis,Cleaning up incorrectly labeled data,Build your first system quickly, then iterate,Training and testing on different distributions,Bias and Variance with mismatched data distributions,Addressing data mismatch,Transfer learning,Multi-task learning,What is end-to-end deep learning?,Whether to use end-to-end deep learning
 
 
-## 4. Convolutional Neural Networks （Feb 15）
+## 4. Convolutional Neural Networks （Feb 25 COMPLETE）
 
 ## 5. Sequence Models （Mar 1 - Mar. 15)
