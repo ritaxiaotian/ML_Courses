@@ -51,19 +51,25 @@ vertical edge detection matix
 1 0 -1
 
 1 0 -1
+
 Horizontal edge detection
+
  1  1  1
 
  0  0  0
  
 -1 -1 -1
+
 sobel filter
+
 1 0 -1
 
 2 0 -2
 
 1 2 -1
+
 Deep learning
+
 w1 w2 w3
 
 w4 w5 w6
