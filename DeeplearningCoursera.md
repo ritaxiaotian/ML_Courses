@@ -43,9 +43,10 @@ Carrying out error analysis,Cleaning up incorrectly labeled data,Build your firs
 ## 4. Convolutional Neural Networks （Feb 25 COMPLETE）
 
 ### Week 1. Convolutional Neural Networks
-**CONVOLVE** the original image matrix using a **kernel/ filter matrix** (6*6 conv 3*3 = (6-3+1)*(6-3+1))
+**1.1 CONVOLVE** the original image matrix using a **kernel/ filter matrix** (6*6 conv 3*3 = (6-3+1)*(6-3+1))
 
 vertical edge detection matix
+
 1 0 -1
 
 1 0 -1
@@ -77,6 +78,43 @@ w4 w5 w6
 w7 w8 w9
 
 Let the neural nets learn the exact values of w (machine learning learning the parameters for edge detection)
+
+#### 1.2 Padding:
+
+n*n image matrix; f*f filter size: result in (n-f+1) * (n - f + 1) matrix.
+
+Disadvantage:
+
+1. shrinking output
+
+2. throw away info from edge
+
+Padding: (n + 2p - f + 1)
+
+“Valid Convolution": No padding
+
+"Same Convolution": Pad so that the output size is the same as the input size: p = (f - 1) / 2
+
+**f is usually Odd**
+
+#### 1.3 Strided Convolutions
+
+Stride = 2 (instead of 1 for common convolution)
+
+
+n*n image matrix; f*f filter size; padding p; stride s: result in ((n + 2p - f)/s + 1) * ((n + 2p - f)/s + 1)  matrix.
+
+Acctually : cross correlation instead of convolution (since there is no flipping(vertical and horizontal flipping) of the filter matrix)
+
+#### 1.4 Convolutions Over Volume
+
+Convolutions on RGB images
+
+Height * Width * Channels
+
+
+#### 1.5 
+
 
 ### Week 2. Deep convolutional models: case studies
 
