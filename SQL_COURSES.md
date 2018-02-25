@@ -19,6 +19,21 @@ Database design tools: Entity-Relationship Diagrams
 
 **ER Diagram**
 
+        1. Entities: categories of similar, but unique measurements
+        
+                 a row in table: entity instance
+        
+        2. Attributes: unique measurements within a category 
+        
+                Unique attribute/Leys/identifiers
+                
+        3. Specific Cardinality Constraint Notation
+        
+                Minimum/Maximum/one/many: numbers are always written from left to right
+                
+                M: infinit, O: Optional
+        
+        
 
 **Relational Schemas**
 
