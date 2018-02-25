@@ -91,8 +91,3 @@ t-test, CTR A/B test, Chi-Square, Statisticl Power, Pitfalls, etc
 
 #### Week 4 Bayesian A/B testing
 #### Week 5 Practice
-## 2. Hadoop
-## 3. NLP
-## 4. Spark
-## 5. The Complete SQL Bootcamp (Nov. 2017 complete)
-## 6. Udemy NLP (Jan. 2018 complete)
