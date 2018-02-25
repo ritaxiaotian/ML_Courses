@@ -47,15 +47,15 @@ Carrying out error analysis,Cleaning up incorrectly labeled data,Build your firs
 
 vertical edge detection matix
 
-1 0 -1
+1 0 -1           1  1  1
 
-1 0 -1
+1 0 -1           0  0  0
 
-1 0 -1
+1 0 -1          -1 -1 -1
 
 Horizontal edge detection
 
- 1  1  1
+
 
  0  0  0
  
@@ -124,8 +124,11 @@ Height * Width * Channels
     green color edge detector
     
     **summary**
+    
     image: nh * nw * nc
+    
     filter: f*f*f*nc
+    
     (n-f+1) * (n - f + 1) * mc
 
 
