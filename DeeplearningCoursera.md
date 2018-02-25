@@ -112,6 +112,22 @@ Convolutions on RGB images
 
 Height * Width * Channels
 
+(6*6*6 image matrix) Cov (3*3*3 filter) = (4*4 result)
+
+#### 1.5 multiple filters
+    horizontal edge detector
+    
+    vertical edge detector
+    
+    red color edge detector
+    
+    green color edge detector
+    
+    **summary**
+    image: nh * nw * nc
+    filter: f*f*f*nc
+    (n-f+1) * (n - f + 1) * mc
+
 
 #### 1.5 
 
