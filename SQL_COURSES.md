@@ -16,7 +16,7 @@
 ### Week 4. Queries to Address More Detailed Business Questions
 
 
-# 2. Udemy
+# 2. Udemy The Complete SQL Bootcamp (Nov. 2017 complete)
 
 
 # 3. Udacity
