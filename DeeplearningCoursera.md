@@ -130,9 +130,17 @@ Height * Width * Channels
     filter: f*f*f*nc
     
     (n-f+1) * (n - f + 1) * mc
+    
+    mc: number of filters
+    
+    If you have 10 filters that are 3*3*3 in one layer of a neural network, how many parameters does that layer have?
+    
+    For each filter: numer of parameters is 3*3*3 + bias = 28; for 10 fileters, parameters are 280
 
 
 #### 1.6 One Layer of a Convolutional Network Example
+
+
 
 
 ### Week 2. Deep convolutional models: case studies
