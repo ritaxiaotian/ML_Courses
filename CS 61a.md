@@ -46,6 +46,29 @@ Disc 01 Convtrol & Environments
 
 ## Lecture 5 Environments
 
+Environment diagrams
+
+Environment Diagrams for Nested Def Statements
+
+• Every user-defined function has a parent frame (often global)
+
+• The parent of a function is the frame in which it was defined
+
+• Every local frame has a parent frame (often global)
+
+• The parent of a frame is the parent of the function called
+
+How to draw an environment diagram
+
+1. Add a local frame, titled with the <name> of the function being called.
+    
+2. Copy the parent of the function to the local frame: [parent=<label>]
+    
+3. Bind the <formal parameters> to the arguments in the local frame.
+    
+4. Execute the body of the function in the environment that starts with the local frame.
+
+
 ## Hw2
 
 ## Hog
