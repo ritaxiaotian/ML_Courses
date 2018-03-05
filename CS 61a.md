@@ -72,3 +72,17 @@ How to draw an environment diagram
 ## Hw2
 
 ## Hog
+
+## Lecture 6 Iteration
+
+Return Statements
+A return statement completes the evaluation of a call expression and provides its value
+f(x) for user-defined function f: switch to a new environment; execute f's body
+return statement within f: switch back to the previous environment; f(x) now has a value
+Only one return statement is ever executed while executing the body of a function
+
+
+## Lecture 7 Recursion
+
+
+## Lecture 8 Tree Recursion
