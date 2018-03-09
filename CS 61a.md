@@ -104,5 +104,8 @@ The Recursive Leap of Faith
         1. verify the base case
         
         2. treat fact as a functional abstraction
+        
+ Mutual Recursion:
+ 
 
 ## Lecture 8 Tree Recursion
