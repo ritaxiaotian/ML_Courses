@@ -84,5 +84,25 @@ Only one return statement is ever executed while executing the body of a functio
 
 ## Lecture 7 Recursion
 
+Iteration is a special case of recursion:
+
+        def fact_iter(n):
+            total, k = 1, i
+            while k <= n:
+                total, k = total*k, k +1
+            return total
+            
+        def fact(n):
+            if n == 0:
+                return 1
+            else:
+                return n*fact(n-1)
+
+
+The Recursive Leap of Faith
+
+        1. verify the base case
+        
+        2. treat fact as a functional abstraction
 
 ## Lecture 8 Tree Recursion
