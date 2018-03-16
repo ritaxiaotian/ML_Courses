@@ -213,6 +213,10 @@ bias: 1, 1, 1, n<sub>C</sub><sup>l</sup>
 #### 2.2 ResNet
 
     - Residual block
+    - a<sup>l</sup> -- linear -- RELU -- Linear -- RELU ... 
+    - skip connect/ short cut
+    - can train ** much deeper ** networks
+    - plain network vs. residual network
 
 #### 2.3 Networks in Networks and 1*1 Convolutions
 
