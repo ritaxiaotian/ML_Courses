@@ -1,5 +1,5 @@
 
-# ML_Courses
+# Machine_Learning_Courses
 Machine Learning Courses
 ## 1. Neural Networks and Deep Learning （Jan 30 complete）
 ### Week 1. Introduction to deep learning
@@ -140,7 +140,14 @@ Height * Width * Channels
 
 #### 1.6 One Layer of a Convolutional Network Example
 
+    f<sub>l</sub> = filter size
+    pl = padding
+    sl = stride
+    ncl = number of filters
+    input = (nH
 
+
+#### 1.7 Simple Convolutional Network Example
 
 
 ### Week 2. Deep convolutional models: case studies
