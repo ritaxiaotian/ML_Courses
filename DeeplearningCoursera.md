@@ -181,7 +181,13 @@ bias: 1, 1, 1, n<sub>C</sub><sup>l</sup>
 
 #### 2.1 Classic Networks
     - LeNet-5: 6 filters, avg pool,fully connected layer; gray scale character recognization
+    
+        - conv-pool-conv-pool
+        - W,H reduces, layers increases
+        - sigmoid/tanh instead of RELU
+        
     - AlexNet:
+    
     - VGG:
  
 
