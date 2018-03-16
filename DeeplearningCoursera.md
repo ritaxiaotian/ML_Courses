@@ -141,12 +141,23 @@ Height * Width * Channels
 
 #### 1.6 One Layer of a Convolutional Network Example
 
-fll<sup>l</sup> = filter size
-ll<sup>superscript</sup>ll
-pl = padding
-sl = stride
-ncl = number of filters
-input = (nH
+f<sup>l</sup> = filter size
+
+p<sup>l</sup> = padding
+
+s<sup>l</sup> = stride
+
+n<sub>c</sub><sup>l</sup> = number of filters
+
+input = n<sub>H</sub><sup>l-1</sup> * n<sub>W</sub><sup>l-1</sup> * n<sub>C</sub><sup>l-1</sup>
+
+output = n<sub>H</sub><sup>l</sup> * n<sub>W</sub><sup>l</sup> * n<sub>C</sub><sup>l</sup>
+
+Each filter is:f<sup>l</sup> * f<sup>l</sup> * n<sub>C</sub><sup>l-1</sup>
+
+Activations:n<sub>H</sub><sup>l</sup> * n<sub>W</sub><sup>l</sup> * n<sub>C</sub><sup>l</sup>
+
+Weights:f<sup>l</sup> * f<sup>l</sup> * n<sub>C</sub><sup>l-1</sup> * n<sub>C</sub><sup>l</sup>
 
 
 #### 1.7 Simple Convolutional Network Example
