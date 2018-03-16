@@ -181,18 +181,38 @@ bias: 1, 1, 1, n<sub>C</sub><sup>l</sup>
 
 #### 2.1 Classic Networks
     - LeNet-5: 6 filters, avg pool,fully connected layer; gray scale character recognization
-    
-        - conv-pool-conv-pool
-        - W,H reduces, layers increases
+        - input: 32*32*1
+        - last layer:5*5*16
+        - final nodes: 120, 84
+        - 60k parameters
+        - conv-avg pool-conv-avg pool
+        - W,H reduces, channels increase
         - sigmoid/tanh instead of RELU
         
-    - AlexNet:
+    - AlexNet(one of the easier papers to read):
+        - input: 227*227*3
+        - last layer:6*6*256
+        - final nodes: 4096
+        - 60m paramters
+        - conv - max pool - conv - max pool
+        - RELU
+        - Mulltiple GPUs(now GPUs are much powerful, no need)
     
-    - VGG:
- 
+    - VGG 16:
+        - CONV = 3*3 filter; s=1;same padding;
+        - MAX-POOL = 2*2, s = 2
+        - input: 224*224*3
+        - last layer:7*7*512
+        - final nodes: 4096
+        - 138m paramters
+        - conv - max pool - conv - max pool
+        - Softmax
+        - The network is too big
+        - VGG 19 is even larger
 
 #### 2.2 ResNet
 
+    - Residual block
 
 #### 2.3 Networks in Networks and 1*1 Convolutions
 
