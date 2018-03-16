@@ -41,7 +41,7 @@ Why ML Strategy,Orthogonalization,Single number evaluation metric,Satisficing an
 Carrying out error analysis,Cleaning up incorrectly labeled data,Build your first system quickly, then iterate,Training and testing on different distributions,Bias and Variance with mismatched data distributions,Addressing data mismatch,Transfer learning,Multi-task learning,What is end-to-end deep learning?,Whether to use end-to-end deep learning
 
 
-## 4. Convolutional Neural Networks （Feb 25 COMPLETE）
+## 4. Convolutional Neural Networks （Mar. 16 COMPLETE）
 
 ### Week 1. Convolutional Neural Networks
 **1.1 CONVOLVE** the original image matrix using a **kernel/ filter matrix** (6*6 conv 3*3 = (6-3+1)*(6-3+1))
@@ -153,14 +153,27 @@ input = n<sub>H</sub><sup>l-1</sup> * n<sub>W</sub><sup>l-1</sup> * n<sub>C</sub
 
 output = n<sub>H</sub><sup>l</sup> * n<sub>W</sub><sup>l</sup> * n<sub>C</sub><sup>l</sup>
 
-Each filter is:f<sup>l</sup> * f<sup>l</sup> * n<sub>C</sub><sup>l-1</sup>
+Each filter is : f<sup>l</sup> * f<sup>l</sup> * n<sub>C</sub><sup>l-1</sup>
 
-Activations:n<sub>H</sub><sup>l</sup> * n<sub>W</sub><sup>l</sup> * n<sub>C</sub><sup>l</sup>
+Activations : n<sub>H</sub><sup>l</sup> * n<sub>W</sub><sup>l</sup> * n<sub>C</sub><sup>l</sup>
 
-Weights:f<sup>l</sup> * f<sup>l</sup> * n<sub>C</sub><sup>l-1</sup> * n<sub>C</sub><sup>l</sup>
+Weights : f<sup>l</sup> * f<sup>l</sup> * n<sub>C</sub><sup>l-1</sup> * n<sub>C</sub><sup>l</sup>
 
+bias: 1, 1, 1, n<sub>C</sub><sup>l</sup>
 
-#### 1.7 Simple Convolutional Network Example
+#### 1.7 Pooling & fully connected
+
+    - Convnets
+
+    - pooling layers: Max pooling; average pooling
+    
+    - Fully connected layers
+ 
+ #### 1.8 Why COnvNets
+ 
+    1. parameter sharing
+    
+    2. sparsity of connections
 
 
 ### Week 2. Deep convolutional models: case studies
@@ -174,4 +187,4 @@ Weights:f<sup>l</sup> * f<sup>l</sup> * n<sub>C</sub><sup>l-1</sup> * n<sub>C</s
 
 
 ### Week 4. Special applications: Face recognition & Neural style transfer
-## 5. Sequence Models （Mar 1 - Mar. 15)
+## 5. Sequence Models （Mar. 26)
