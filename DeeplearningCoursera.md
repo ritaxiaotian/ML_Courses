@@ -179,6 +179,20 @@ bias: 1, 1, 1, n<sub>C</sub><sup>l</sup>
 ### Week 2. Deep convolutional models: case studies
 
 
+#### 2.1 Classic Networks
+    - LeNet-5: 6 filters, avg pool,fully connected layer; gray scale character recognization
+    - AlexNet:
+    - VGG:
+ 
+
+#### 2.2 ResNet
+
+
+#### 2.3 Networks in Networks and 1*1 Convolutions
+
+
+
+
 
 
 ### Week 3. Object detection
