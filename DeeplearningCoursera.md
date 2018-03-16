@@ -1,7 +1,7 @@
 
 # Machine_Learning_Courses
 Machine Learning Courses
-ll<sup>superscript</sup>ll
+
 ## 1. Neural Networks and Deep Learning （Jan 30 complete）
 ### Week 1. Introduction to deep learning
 
@@ -141,7 +141,7 @@ Height * Width * Channels
 
 #### 1.6 One Layer of a Convolutional Network Example
 
-    f<sub>l</sub> = filter size
+    fll<sup>l</sup> = filter size
     pl = padding
     sl = stride
     ncl = number of filters
