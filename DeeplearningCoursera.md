@@ -210,15 +210,22 @@ bias: 1, 1, 1, n<sub>C</sub><sup>l</sup>
         - The network is too big
         - VGG 19 is even larger
 
-#### 2.2 ResNet
+#### 2.2 ResNets
 
     - Residual block
+    
     - a<sup>l</sup> -- linear -- RELU -- Linear -- RELU ... 
+    
     - skip connect/ short cut
+    
     - can train ** much deeper ** networks
+    
     - plain network vs. residual network
 
-#### 2.3 Networks in Networks and 1*1 Convolutions
+#### 2.3 Why ResNets work
+
+
+#### 2.4 Networks in Networks and 1*1 Convolutions
 
 
 
