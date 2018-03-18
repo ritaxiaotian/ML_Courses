@@ -224,16 +224,41 @@ bias: 1, 1, 1, n<sub>C</sub><sup>l</sup>
 
 #### 2.3 Why ResNets work
 
+    - It is a way to solve the vanishing gradient problem. And therefore models could be built even deeper.
 
 #### 2.4 Networks in Networks and 1*1 Convolutions
 
+    - shrink number of channels
+    
+    - adds nonlinearity
 
 
+#### 2.5 Inception network 
 
+    - have it all
+    - computational cost
+
+#### 2.6  Practical advices for using ConvNets
+
+    - Using Open-SOurce implementation
+    
+    - Transfer Learning
+    
+    - Data Augmentation
+    
+    - State of Computer Vision
 
 
 ### Week 3. Object detection
 
+#### 3.1 Object Localization
+
+    - usually one object instead of many objects
+    
+    - Classification with localization (class, bx, by, bh, bw)
+
+
+#### 3.2 Object Localization
 
 
 
