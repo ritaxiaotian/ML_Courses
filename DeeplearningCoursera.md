@@ -263,4 +263,13 @@ bias: 1, 1, 1, n<sub>C</sub><sup>l</sup>
 
 
 ### Week 4. Special applications: Face recognition & Neural style transfer
+
 ## 5. Sequence Models （Mar. 26)
+
+### Week 1. Recurrent Neural Networks
+
+
+### Week 2. Natural Language Processing & Word Embeddings
+
+### Week 3. Sequence models & Attention mechanism
+
