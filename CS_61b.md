@@ -77,12 +77,19 @@ http://goo.gl/ngsxkq
       
       If we were to reassign a to something else, we’d never be able to get the original Object back!
       
- #### 3.4 IntList and Linked Data Structures
- 
- 
+ #### 3.4 IntList and Linked Data Structures 
 
  
- ## Lecture 4: SLLists, Nested Classes, Sentinel Nodes
+ ## Lecture 4: SLLists and Avoiding Nakedness (SLLists, Nested Classes, Sentinel Nodes)
+ 
+#### 3.1 From IntList to SLList
+            - The private keyword 
+            - Nested classes
+            - Recursive private helper methods
+            - Caching
+            - Sentinel nodes
+ 
+
  
  
  
