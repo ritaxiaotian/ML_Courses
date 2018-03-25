@@ -61,4 +61,31 @@ http://goo.gl/ngsxkq
 
  #### 3.3 Instantiation of Arrays
  
+      Arrays are also Objects. As we’ve seen, objects are (usually) instantiated using the new keyword. 
+      
+      Planet p = new Planet(0, 0, 0, 0, 0, “blah.png”);    
+      
+      int[] a = new int[]{0, 1, 2, 95, 4};
+      
+      Creates a 64 bit box for storing an int array address. (declaration)
+      
+      Creates a new Object, in this case an int array. (instantiation)
+      
+      Puts the address of this new Object into the 64 bit box named a. (assignment)
+      
+      Note: Instantiated objects can be lost!
+      
+      If we were to reassign a to something else, we’d never be able to get the original Object back!
+      
+ #### 3.4 IntList and Linked Data Structures
+ 
+ 
+
+ 
  ## Lecture 4: SLLists, Nested Classes, Sentinel Nodes
+ 
+ 
+ 
+ 
+ 
+ ## Lecture 5: DLLists, Arrays
