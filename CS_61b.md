@@ -28,7 +28,7 @@
       
  ## Lecture 3: References, Recursion, and Lists
  
-#### Bits: Your computer stores information in “memory”.
+#### 3.1 Bits Types: Your computer stores information in “memory”.
       Information is stored in memory as a sequence of ones and zeros.
       Example: 72 stored as 01001000
       Example: 205.75 stored as … 01000011 01001101 11000000 00000000
@@ -36,10 +36,29 @@
       Example: True stored as 00000001
 
       Each Java type has a different way to interpret the bits:
-      8 primitive types in Java: ** byte, short, int, long, float, double, boolean, char**
+      8 primitive types in Java: **byte, short, int, long, float, double, boolean, char**
       We won’t discuss the precise representations in much detail in 61B.
       Covered in much more detail in 61C.
+      
 
+ #### 3.1 Reference Types
  
+- There are 8 primitive types in Java: byte, short, int, long, float, double, boolean, char
+
+- Everything else, including arrays, is a **reference type.**
+
+ #### 3.2 Parameter Passing
+ 
+ ## The Golden Rule of Equals (GRoE)
+
+### There are 9 types of variables in Java:
+
+#### 8 primitive types (byte, short, int, long, float, double, boolean, char).
+
+#### The 9th type is references to Objects (an arrow). References may be null.
+
+http://goo.gl/ngsxkq
+
+ #### 3.3 Instantiation of Arrays
  
  ## Lecture 4: SLLists, Nested Classes, Sentinel Nodes
