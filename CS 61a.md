@@ -112,3 +112,122 @@ The Recursive Leap of Faith
  
 
 ## Lecture 8 Tree Recursion
+
+
+
+
+
+
+## Lecture 9 Function Examples
+
+
+
+## Lecture 10 Data Abstraction
+
+## Lecture 11 Containers 
+
+
+
+
+## Lecture 12 Trees
+
+
+
+## Lecture 13 Mutable Values
+
+
+
+
+## Lecture 14 Mutable Functions
+
+
+
+
+## Lecture 15 Objects
+
+
+
+
+## Lecture 16 Inheritance
+
+
+## Lecture 17 Representation
+
+
+
+## Lecture 18 Growth
+
+
+## Lecture 19 Composition
+
+
+
+
+## Lecture 20 Ordered Sets
+
+
+
+## Lecture 21 Tree Sets
+
+
+
+## Lecture 22 Data Examples 
+
+
+
+## Lecture 23 Users
+
+
+## Lecture 24 Scheme
+
+## Lecture 25 Exceptions
+
+
+
+## Lecture 26 Calculator
+
+
+## Lecture 27 Interpreters
+
+
+
+## Lecture 28 Tail Calls
+
+
+## Lecture 29 Macros
+
+## Lecture 30 Iterators
+
+
+## Lecture 31 Streams
+
+
+## Lecture 32 Declarative Programming
+
+## Lecture 33 Tables
+
+## Lecture 34 Aggregation
+
+## Lecture 35 Databases
+
+## Lecture 36 Distributed Data
+
+## Lecture 37 Natural Language
+
+
+
+## Lecture 38 Conclusion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
