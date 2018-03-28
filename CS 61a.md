@@ -110,11 +110,73 @@ The Recursive Leap of Faith
  
  Converting Recursion to Iteration
  
+ #### Is fact implemented correctly?
+1. Verify the base case
+2. Treat fact as a functional abstraction!
+3. Assume that fact(n-1) is correct
+4. Verify that fact(n) is correct
+
+#### Mutual Recursion
+
+The Luhn Algorithm
+
+    def split(n):
+        return n//10, n%10
+
+
+    def sum_digits(n):
+        if n < 10:
+            return n
+        else:
+            all_but_last, last = split(n)
+            return sum_digits(all_but_last) + last
+
+
+    def luhn_sum(n):
+        if n < 10:
+            return n
+        else:
+            all_but_last, last = split(n)
+            return luhn_sum_double(all_but_last) + last
+
+
+    def luhn_sum_double(n):
+        all_but_last, last = split(n)
+        luhn_digit = sum_digits(2 * last)
+        if n < 10:
+            return luhn_digit
+        else:
+            return luhn_sum(all_but_last) + luhn_digit
+
+
+ 
 
 ## Lecture 8 Tree Recursion
 
+- Each cascade frame is from a different call to cascade.
+- Until the Return value appears, that call has not completed.
+- Any statement can appear before or after the recursive call.
+
+        def cascade(n):
+             print(n)
+             if n >= 10:
+                 cascade(n//10)
+                 print(n)
 
 
+
+        def inverscas(n):
+            grow(n)
+            print(n)
+            shrink(n)
+
+        def f_then_g(f,g,n):
+            if n:
+                f(n)
+                g(n)
+
+        grow = lambda n: f_then_g(grow, print, n//10)
+        shrink = lambda n: f_then_g(print, shrink, n// 10)
 
 
 
