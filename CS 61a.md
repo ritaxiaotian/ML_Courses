@@ -208,11 +208,72 @@ This process is highly repetitive; fib is called on the same argument multiple t
 
 ## Lecture 9 Function Examples
 
+#### 9.1 Test-Driven Development
 
+    Write the test of a function before you write the function.
+        A test will clarify the domain, range, & behavior of a function.
+        Tests can help identify tricky edge cases.
+    Develop incrementally and test each piece before moving on.
+        You can't depend upon code that hasn't been tested.
+        Run your old tests again after you make new changes.
+    Bonus idea: Run your code interactively.
+        Don't be afraid to experiment with a function after you write it.
+        Interactive sessions can become doctests. Just copy and paste.
 
+#### 9.2 Decorators
+
+    @trace1
+    def triple(x):
+     return 3 * x 
+     
+is identical to:
+
+    def triple(x):
+     return 3 * x
+    triple = trace1(triple)
+    
+#### 9.3 What would python print
+
+    def delay(arg):
+     print('delayed')
+     def g():
+        return arg
+     return g
+     
+     
+     delay(delay)()(6)()
+     
 ## Lecture 10 Data Abstraction
 
+#### 10.1 Concept
+
+    • Compound values combine other values together
+    § A date: a year, a month, and a day
+    § A geographic position: latitude and longitude
+    • Data abstraction lets us manipulate compound values as units
+    • Isolate two parts of any program that uses data:
+    § How data are represented (as parts)
+    § How data are manipulated (as units)
+    • Data abstraction: A methodology by which functions enforce an abstraction barrier between representation and use
+    
+    
+#### Rational NUmbers
+
+    •rational(n, d) returns a rational number x
+    •numer(x) returns the numerator of x
+    •denom(x) returns the denominator of x
+
+    def mul_rational(x, y):
+         return rational(numer(x) * numer(y),
+         denom(x) * denom(y))
+    
+#### Pairs ,Abstraction Barriers
+
+#### Data Representations
+
 ## Lecture 11 Containers 
+
+#### 
 
 
 
