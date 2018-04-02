@@ -269,22 +269,138 @@ is identical to:
     
 #### Pairs ,Abstraction Barriers
 
+from operator import getitem
+getitem(pair, 0)
+
 #### Data Representations
 
+We need to guarantee that constructor and selector functions work
+together to specify the right behavior
+• Behavior condition: If we construct rational number x from numerator
+n and denominator d, then numer(x)/denom(x) must equal n/d
+• Data abstraction uses selectors and constructors to define behavior
+• If behavior conditions are met, then the representation is valid
+
+
+    def rational(n, d):
+    def select(name):
+        if name == 'n':
+            return n
+        elif name == 'd':
+            return d
+    return select
+    def numer(x):
+        return x('n')
+    def denom(x):
+        return x('d')
+        
+    x = rational(2,3)    
+    numer(x)
+    
 ## Lecture 11 Containers 
 
-#### 
+Built-in operators for testing whether an element appears in a compound value
 
+    digits = [2//2, 2+2+2+2, 2, 2*2*2]
+    [2,7] + digits*2
+    [2, 7, 1, 8, 2, 8, 1, 8, 2, 8]
+    
+    add([2, 7], mul(digits, 2))
+    [2, 7, 1, 8, 2, 8, 1, 8, 2, 8]
 
+#### For Statements
 
+#### Ranges
+
+#### List comprehensions
+
+    [<map exp> for <name> in <iter exp> if <filter exp>]
+    Short version: [<map exp> for <name> in <iter exp>]
+    A combined expression that evaluates to a list using this evaluation procedure:
+    1. Add a new frame with the current frame as its parent
+    2. Create an empty result list that is the value of the expression
+    3. For each element in the iterable value of <iter exp>:
+    A. Bind <name> to that element in the new frame from step 1
+    B. If <filter exp> evaluates to a true value, then add the value of <map exp> to the result list
+
+#### Strings
+
+#### Dictionaries
+
+Dictionaries are unordered collections of key-value pairs
+Dictionary keys do have two restrictions:
+•A key of a dictionary cannot be a list or a dictionary (or any mutable type)
+•Two keys cannot be equal; There can be at most one value for a given key
+This first restriction is tied to Python's underlying implementation of dictionaries
+The second restriction is part of the dictionary abstraction
+If you want to associate multiple values with a key, store them all in a sequence value
 
 ## Lecture 12 Trees
 
+•A method for combining data values satisfies the closure property if:
+ The result of combination can itself be combined using the same method
+•Closure is powerful because it permits us to create hierarchical structures
+•Hierarchical structures are made up of parts, which themselves are made up
+of parts, and so on
 
+#### Box-and-Pointer Notation in Environment Diagrams
 
-## Lecture 13 Mutable Values
+Lists are represented as a row of index-labeled adjacent boxes, one per element
+Each box either contains a primitive value or points to a compound value
 
+#### Slicing 
 
+#### Processing Container Values
+
+##### Sequence Aggregation
+
+    Several built-in functions take iterable arguments and aggregate them into a value
+    • sum(iterable[, start]) -> value
+    Return the sum of an iterable of numbers (NOT strings) plus the value of parameter 'start' (which defaults to 0). When the iterable     is empty, return start.
+
+    • max(iterable[, key=func]) -> value
+    max(a, b, c, ...[, key=func]) -> value
+    With a single iterable argument, return its largest item.
+    With two or more arguments, return the largest argument.
+    
+     all(iterable) -> bool
+     Return True if bool(x) is True for all values x in the iterable.
+     If the iterable is empty, return True.
+     
+#### Tree Abstraction
+
+    **Recursive description (wooden trees):**
+    A tree has a root and a list of branches
+    Each branch is a tree
+    A tree with zero branches is called a leaf
+
+    **Relative description (family trees):**
+    Each location in a tree is called a node
+    Each node has a label value
+    One node can be the parent/child of another
+
+    People often refer to values by their locations: "each parent is the sum of its children"
+
+def tree(label, branches=[]):
+    for branch in branches:
+        assert is_tree(branch)
+    return [label] + list(branches)
+    
+def label(tree):
+    return tree[0]
+
+def branches(tree):
+    return tree[1:]
+    
+def is_tree(tree):
+     if type(tree) != list or len(tree) < 1:
+        return False
+     for branch in branches(tree):
+        if not is_tree(branch):
+            return False
+     return True 
+     
+#### Tree Processing
 
 
 ## Lecture 14 Mutable Functions
