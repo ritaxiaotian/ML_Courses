@@ -354,6 +354,11 @@ Each box either contains a primitive value or points to a compound value
 
 ##### Sequence Aggregation
 
+    def divisors(n):
+        return [1] + [x for x in range(2, n) if n % x == 0]
+        
+    [n for n in range(1, 1000) if sum(divisors(n)) == n]
+
     Several built-in functions take iterable arguments and aggregate them into a value
     • sum(iterable[, start]) -> value
     Return the sum of an iterable of numbers (NOT strings) plus the value of parameter 'start' (which defaults to 0). When the iterable     is empty, return start.
@@ -402,7 +407,42 @@ def is_tree(tree):
      
 #### Tree Processing
 
+    odds = [1, 3, 5, 7, 9]
+    [x for x in odds if 25 % x == 0]
+    
+    [1, 5]
+    
+    
+>>> def width(area, height):
+        assert area % height == 0
+        return area // height
+The perimeter of a rectangle is the sum of its side lengths.
 
+>>> def perimeter(width, height):
+        return 2 * width + 2 * height
+The height of a rectangle with integer side lengths must be a divisor of its area. We can compute the minimum perimeter by considering all heights.
+
+>>> def minimum_perimeter(area):
+        heights = divisors(area)
+        perimeters = [perimeter(width(area, h), h) for h in heights]
+        return min(perimeters)
+>>> area = 80
+>>> width(area, 5)
+16
+>>> perimeter(16, 5)
+42
+>>> perimeter(10, 8)
+36
+>>> minimum_perimeter(area)
+36
+>>> [minimum_perimeter(n) for n in range(1, 10)]
+[4, 6, 8, 8, 12, 10, 16, 12, 12]
+
+
+#### Linked Lists
+
+
+#### 
 ## Lecture 14 Mutable Functions
 
 
