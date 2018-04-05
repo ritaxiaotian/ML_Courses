@@ -603,8 +603,143 @@ A linked list is a pair containing the first element of the sequence (in this ca
                 
 ## Lecture 14 Mutable Functions
 
+**Adding state to data is a central ingredient of a paradigm called object-oriented programming.**
+
+#### The Object Metaphor
+
+In fact, all values in Python are objects. That is, all values have behavior and attributes. They act like the values they represent.
+
+#### Sequence Objects
+
+Instances of primitive built-in values such as numbers are immutable. The values themselves cannot change over the course of program execution. Lists on the other hand are mutable.
+
+>>> chinese = ['coin', 'string', 'myriad']  # A list literal
+>>> suits = chinese                         # Two names refer to the same list
+As cards migrated to Europe (perhaps through Egypt), only the suit of coins remained in Spanish decks (oro).
+
+>>> suits.pop()             # Remove and return the final element
+'myriad'
+>>> suits.remove('string')  # Remove the first element that equals the argument
+
+Sharing and Identity. Because we have been changing a single list rather than creating new lists, the object bound to the name chinese has also changed, because it is the same list object that was bound to suits!
+
+#### Deep copy and shallow copy
+
+Lists can be copied using the list constructor function. Changes to one list do not affect another, unless they share structure.
+
+>>> nest = list(suits)  # Bind "nest" to a second list with the same elements
+>>> nest[0] = suits     # Create a nested list
+
+Two objects are identical if they are equal in their current value, and any change to one will always be reflected in the other. Identity is a stronger condition than equality.
+
+>>> suits is nest[0]
+True
+>>> suits is ['heart', 'diamond', 'spade', 'club']
+False
+>>> suits == ['heart', 'diamond', 'spade', 'club']
+True
+
+The final two comparisons illustrate the difference between is and ==. The former checks for identity, while the latter checks for the equality of contents.
+
+#### List comprehensions.
+
+A list comprehension always creates a new list. For example, the unicodedata module tracks the official names of every character in the Unicode alphabet. We can look up the characters corresponding to names, including those for card suits.
+
+    suits = ['heart', 'diamond', 'spade', 'club']
+    from unicodedata import lookup
+    [lookup('WHITE ' + s.upper() + ' SUIT') for s in suits]
+
+    ['♡', '♢', '♤', '♧']
+    
+#### Tuples.
+
+A tuple, an instance of the built-in tuple type, is an immutable sequence. Tuples are created using a tuple literal that separates element expressions by commas. Parentheses are optional but used commonly in practice. Any objects can be placed within tuples.
+
+>>> 1, 2 + 3
+(1, 5)
+>>> ("the", 1, ("and", "only"))
+('the', 1, ('and', 'only'))
+>>> type( (10, 20) )
+<class 'tuple'>
+
+Like lists, tuples have a finite length and support element selection. They also have a few methods that are also available for lists, such as count and index.
+
+Like lists, tuples have a finite length and support element selection. They also have a few methods that are also available for lists, such as count and index.
+
+>>> code = ("up", "up", "down", "down") + ("left", "right") * 2
+>>> len(code)
+8
+>>> code[3]
+'down'
+>>> code.count("down")
+2
+>>> code.index("left")
+4
 
 
+Apart from tuples being immutable there is also a semantic distinction that should guide their usage. Tuples are heterogeneous data structures (i.e., their entries have different meanings), while lists are homogeneous sequences. Tuples have structure, lists have order.
+
+https://stackoverflow.com/questions/626759/whats-the-difference-between-lists-and-tuples
+
+However, the methods for manipulating the contents of a list are not available for tuples because tuples are immutable.
+
+While it is not possible to change which elements are in a tuple, it is possible to change the value of a mutable element contained within a tuple.
+
+1	nest = (10, 20, [30, 40])
+2	nest[2].pop()
+
+#### Dictionaries
+
+Strings commonly serve as keys, because strings are our conventional representation for names of things. This dictionary literal gives the values of various Roman numerals.
+
+>>> numerals = {'I': 1.0, 'V': 5, 'X': 10}
+Looking up values by their keys uses the element selection operator that we previously applied to sequences.
+
+>>> numerals['X']
+10
+
+**A dictionary can have at most one value for each key. Adding new key-value pairs and changing the existing value for a key can both be achieved with assignment statements.**
+
+    The dictionary type also supports various methods of iterating over the contents of the dictionary as a whole. The methods keys,        values, and items all return iterable values.
+
+    >>> sum(numerals.values())
+    66
+    A list of key-value pairs can be converted into a dictionary by calling the dict constructor function.
+
+    >>> dict([(3, 9), (4, 16), (5, 25)])
+    {3: 9, 4: 16, 5: 25}
+    Dictionaries do have some restrictions:
+
+    A key of a dictionary cannot be or contain a mutable value.
+    There can be at most one value for a given key.
+    
+A useful method implemented by dictionaries is get, which returns either the value for a key, if the key is present, or a default value. The arguments to get are the key and the default value.
+
+>>> numerals.get('A', 0)
+0
+>>> numerals.get('V', 0)
+5
+Dictionaries also have a comprehension syntax analogous to those of lists. A key expression and a value expression are separated by a colon. Evaluating a dictionary comprehension creates a new dictionary object.
+
+>>> {x: x*x for x in range(3,6)}
+{3: 9, 4: 16, 5: 25}
+
+#### Local State
+
+Lists and dictionaries have local state: they are changing values that have some particular contents at any point in the execution of a program. The word "state" implies an evolving process in which that state may change.
+
+An implementation of make_withdraw requires a new kind of statement: a nonlocal statement. When we call make_withdraw, we bind the name balance to the initial amount. We then define and return a local function, withdraw, which updates and returns the value of balance when called.
+
+>>> def make_withdraw(balance):
+        """Return a withdraw function that draws down balance with each call."""
+        def withdraw(amount):
+            nonlocal balance                 # Declare the name "balance" nonlocal
+            if amount > balance:
+                return 'Insufficient funds'
+            balance = balance - amount       # Re-bind the existing balance name
+            return balance
+        return withdraw
+        
 
 # 6. Week 6
 
