@@ -17,7 +17,7 @@ disc 00 Lost on the Moon
 
 HW 01
 
-# Week 2 
+# 2. Week 2
 
 ## Lecture 3 control ,(40min) Lab0
 
@@ -72,6 +72,8 @@ How to draw an environment diagram
 ## Hw2
 
 ## Hog
+
+# 3. Week 3
 
 ## Lecture 6 Iteration
 
@@ -204,7 +206,7 @@ This process is highly repetitive; fib is called on the same argument multiple t
  
 #### COunting Partitions
 
-
+# 4. Week 4
 
 ## Lecture 9 Function Examples
 
@@ -297,6 +299,8 @@ n and denominator d, then numer(x)/denom(x) must equal n/d
     x = rational(2,3)    
     numer(x)
     
+# 5. Week 5
+
 ## Lecture 11 Containers 
 
 Built-in operators for testing whether an element appears in a compound value
@@ -596,15 +600,20 @@ A linked list is a pair containing the first element of the sequence (in this ca
                 lists = partitions(n, m)
                 strings = apply_to_all_link(lambda s: join_link(s, " + "), lists)
                 print(join_link(strings, "\n"))
+                
 ## Lecture 14 Mutable Functions
 
 
 
 
+# 6. Week 6
+
 ## Lecture 15 Objects
 
 
 
+
+# 7. Week 7
 
 ## Lecture 16 Inheritance
 
@@ -615,6 +624,7 @@ A linked list is a pair containing the first element of the sequence (in this ca
 
 ## Lecture 18 Growth
 
+# 8. Week 8
 
 ## Lecture 19 Composition
 
@@ -628,6 +638,7 @@ A linked list is a pair containing the first element of the sequence (in this ca
 ## Lecture 21 Tree Sets
 
 
+# 9. Week 9
 
 ## Lecture 22 Data Examples 
 
@@ -635,6 +646,7 @@ A linked list is a pair containing the first element of the sequence (in this ca
 
 ## Lecture 23 Users
 
+# 10. Week 10
 
 ## Lecture 24 Scheme
 
@@ -644,6 +656,7 @@ A linked list is a pair containing the first element of the sequence (in this ca
 
 ## Lecture 26 Calculator
 
+# 12. Week 12
 
 ## Lecture 27 Interpreters
 
@@ -654,6 +667,8 @@ A linked list is a pair containing the first element of the sequence (in this ca
 
 ## Lecture 29 Macros
 
+# 13. Week 13
+
 ## Lecture 30 Iterators
 
 
@@ -662,11 +677,15 @@ A linked list is a pair containing the first element of the sequence (in this ca
 
 ## Lecture 32 Declarative Programming
 
+# 14. Week 14
+
 ## Lecture 33 Tables
 
 ## Lecture 34 Aggregation
 
 ## Lecture 35 Databases
+
+# 15. Week 15
 
 ## Lecture 36 Distributed Data
 
