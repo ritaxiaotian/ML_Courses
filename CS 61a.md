@@ -792,6 +792,34 @@ class <name>:
             self.balance = 0
             self.holder = account_holder
             
+Identity. Each new account instance has its own balance attribute, the value of which is independent of other objects of the same class.
+
+>>> b = Account('Spock')
+>>> b.balance = 200
+>>> [acc.balance for acc in (a, b)]
+[0, 200]
+
+
+Despite being constructed from identical calls, the objects bound to a and b are not the same. As usual, binding an object to a new name using assignment does not create a new object.
+
+>>> c = a
+>>> c is a
+True
+
+>>> class Account:
+        def __init__(self, account_holder):
+            self.balance = 0
+            self.holder = account_holder
+        def deposit(self, amount):
+            self.balance = self.balance + amount
+            return self.balance
+        def withdraw(self, amount):
+            if amount > self.balance:
+                return 'Insufficient funds'
+            self.balance = self.balance - amount
+            return self.balance
+            
+
 #### Message Passing and Dot Expressions
 
 
