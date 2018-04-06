@@ -745,6 +745,54 @@ An implementation of make_withdraw requires a new kind of statement: a nonlocal 
 
 ## Lecture 15 Objects
 
+Object-oriented programming (OOP) is a method for organizing programs that brings together many of the ideas introduced in this chapter
+The paradigm of object-oriented programming has its own vocabulary that supports the object metaphor. We have seen that an object is a data value that has methods and attributes, accessible via dot notation. Every object also has a type, called its class. To create new types of data, we implement new classes.
+
+#### Objects and Classes
+
+A class serves as a template for all objects whose type is that class. Every object is an instance of some particular class. The objects we have used so far all have built-in classes, but new user-defined classes can be created as well. A class definition specifies the attributes and methods shared among objects of that class. 
+
+An Account class allows us to create multiple instances of bank accounts. The act of creating a new object instance is known as instantiating the class. The syntax in Python for instantiating a class is identical to the syntax of calling a function. In this case, we call Account with the argument 'Kirk', the account holder's name.
+
+>>> a = Account('Kirk')
+
+An attribute of an object is a name-value pair associated with the object, which is accessible via dot notation. The attributes specific to a particular object, as opposed to all objects of a class, are called instance attributes. Each Account has its own balance and account holder name, which are examples of instance attributes. In the broader programming community, instance attributes may also be called fields, properties, or instance variables.
+
+>>> a.holder
+
+'Kirk'
+
+>>> a.balance
+
+0
+
+Functions that operate on the object or perform object-specific computations are called methods. The return values and side effects of a method can depend upon and change other attributes of the object. For example, deposit is a method of our Account object a. It takes one argument, the amount to deposit, changes the balance attribute of the object, and returns the resulting balance.
+
+>>> a.deposit(15)
+15
+We say that methods are invoked on a particular object. As a result of invoking the withdraw method, either the withdrawal is approved and the amount is deducted, or the request is declined and the method returns an error message.
+
+>>> a.withdraw(10)  # The withdraw method returns the balance after withdrawal
+5
+>>> a.balance       # The balance attribute has changed
+5
+>>> a.withdraw(10)
+'Insufficient funds'
+As illustrated above, the behavior of a method can depend upon the changing attributes of the object. Two calls to withdraw with the same argument return different results.
+
+#### Defining Classes
+
+User-defined classes are created by class statements, which consist of a single clause. A class statement defines the class name, then includes a suite of statements to define the attributes of the class:
+
+class <name>:
+    <suite>
+        
+>>> class Account:
+        def __init__(self, account_holder):
+            self.balance = 0
+            self.holder = account_holder
+            
+#### Message Passing and Dot Expressions
 
 
 
