@@ -822,11 +822,63 @@ True
 
 #### Message Passing and Dot Expressions
 
-
-
 # 7. Week 7
 
 ## Lecture 16 Inheritance
+
+For example, we may want to implement a checking account, which is different from a standard account. A checking account charges an extra $1 for each withdrawal and has a lower interest rate. Here, we demonstrate the desired behavior.
+
+>>> ch = CheckingAccount('Spock')
+>>> ch.interest     # Lower interest rate for checking accounts
+0.01
+>>> ch.deposit(20)  # Deposits are the same
+20
+>>> ch.withdraw(5)  # withdrawals decrease balance by an extra charge
+14
+A CheckingAccount is a specialization of an Account. In OOP terminology, the generic account will serve as the base class of CheckingAccount, while CheckingAccount will be a subclass of Account. (The terms parent class and superclass are also used for the base class, while child class is also used for the subclass.)
+
+A subclass inherits the attributes of its base class, but may override certain attributes, including certain methods. With inheritance, we only specify what is different between the subclass and the base class. Anything that we leave unspecified in the subclass is automatically assumed to behave just as it would for the base class.
+
+Inheritance also has a role in our object metaphor, in addition to being a useful organizational feature. Inheritance is meant to represent is-a relationships between classes, which contrast with has-a relationships. A checking account is-a specific type of account, so having a CheckingAccount inherit from Account is an appropriate use of inheritance. On the other hand, a bank has-a list of bank accounts that it manages, so neither should inherit from the other. Instead, a list of account objects would be naturally expressed as an instance attribute of a bank object.
+
+#### Using Inheritance
+
+First, we give a full implementation of the Account class, which includes docstrings for the class and its methods.
+
+>>> class Account:
+        """A bank account that has a non-negative balance."""
+        interest = 0.02
+        def __init__(self, account_holder):
+            self.balance = 0
+            self.holder = account_holder
+        def deposit(self, amount):
+            """Increase the account balance by amount and return the new balance."""
+            self.balance = self.balance + amount
+            return self.balance
+        def withdraw(self, amount):
+            """Decrease the account balance by amount and return the new balance."""
+            if amount > self.balance:
+                return 'Insufficient funds'
+            self.balance = self.balance - amount
+            return self.balance
+A full implementation of CheckingAccount appears below. We specify inheritance by placing an expression that evaluates to the base class in parentheses after the class name.
+
+>>> class CheckingAccount(Account):
+        """A bank account that charges for withdrawals."""
+        withdraw_charge = 1
+        interest = 0.01
+        def withdraw(self, amount):
+            return Account.withdraw(self, amount + self.withdraw_charge)
+Here, we introduce a class attribute withdraw_charge that is specific to the CheckingAccount class. We assign a lower value to the interest attribute. We also define a new withdraw method to override the behavior defined in the Account class. With no further statements in the class suite, all other behavior is inherited from the base class Account.
+
+>>> checking = CheckingAccount('Sam')
+>>> checking.deposit(10)
+10
+>>> checking.withdraw(5)
+4
+>>> checking.interest
+0.01
+
 
 
 ## Lecture 17 Representation
