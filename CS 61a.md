@@ -276,11 +276,12 @@ getitem(pair, 0)
 
 #### Data Representations
 
-We need to guarantee that constructor and selector functions work
-together to specify the right behavior
-• Behavior condition: If we construct rational number x from numerator
-n and denominator d, then numer(x)/denom(x) must equal n/d
+We need to guarantee that constructor and selector functions work together to specify the right behavior
+
+• Behavior condition: If we construct rational number x from numerator n and denominator d, then numer(x)/denom(x) must equal n/d
+
 • Data abstraction uses selectors and constructors to define behavior
+
 • If behavior conditions are met, then the representation is valid
 
 
@@ -332,24 +333,31 @@ Built-in operators for testing whether an element appears in a compound value
 #### Dictionaries
 
 Dictionaries are unordered collections of key-value pairs
+
 Dictionary keys do have two restrictions:
+
 •A key of a dictionary cannot be a list or a dictionary (or any mutable type)
+
 •Two keys cannot be equal; There can be at most one value for a given key
+
 This first restriction is tied to Python's underlying implementation of dictionaries
+
 The second restriction is part of the dictionary abstraction
+
 If you want to associate multiple values with a key, store them all in a sequence value
 
 ## Lecture 12 Trees
 
-•A method for combining data values satisfies the closure property if:
- The result of combination can itself be combined using the same method
+•A method for combining data values satisfies the closure property if: The result of combination can itself be combined using the same method
+
 •Closure is powerful because it permits us to create hierarchical structures
-•Hierarchical structures are made up of parts, which themselves are made up
-of parts, and so on
+
+•Hierarchical structures are made up of parts, which themselves are made up of parts, and so on
 
 #### Box-and-Pointer Notation in Environment Diagrams
 
 Lists are represented as a row of index-labeled adjacent boxes, one per element
+
 Each box either contains a primitive value or points to a compound value
 
 #### Slicing 
@@ -390,24 +398,24 @@ Each box either contains a primitive value or points to a compound value
 
     People often refer to values by their locations: "each parent is the sum of its children"
 
-def tree(label, branches=[]):
-    for branch in branches:
-        assert is_tree(branch)
-    return [label] + list(branches)
-    
-def label(tree):
-    return tree[0]
+    def tree(label, branches=[]):
+        for branch in branches:
+            assert is_tree(branch)
+        return [label] + list(branches)
 
-def branches(tree):
-    return tree[1:]
-    
-def is_tree(tree):
-     if type(tree) != list or len(tree) < 1:
-        return False
-     for branch in branches(tree):
-        if not is_tree(branch):
+    def label(tree):
+        return tree[0]
+
+    def branches(tree):
+        return tree[1:]
+
+    def is_tree(tree):
+         if type(tree) != list or len(tree) < 1:
             return False
-     return True 
+         for branch in branches(tree):
+            if not is_tree(branch):
+                return False
+         return True 
      
 #### Tree Processing
 
@@ -418,29 +426,48 @@ def is_tree(tree):
     
     
 >>> def width(area, height):
+
         assert area % height == 0
+        
         return area // height
+        
 The perimeter of a rectangle is the sum of its side lengths.
 
 >>> def perimeter(width, height):
+
         return 2 * width + 2 * height
+        
 The height of a rectangle with integer side lengths must be a divisor of its area. We can compute the minimum perimeter by considering all heights.
 
 >>> def minimum_perimeter(area):
+
         heights = divisors(area)
+
         perimeters = [perimeter(width(area, h), h) for h in heights]
+        
         return min(perimeters)
 >>> area = 80
+
 >>> width(area, 5)
+
 16
+
 >>> perimeter(16, 5)
+
 42
+
 >>> perimeter(10, 8)
+
 36
+
 >>> minimum_perimeter(area)
+
 36
+
 >>> [minimum_perimeter(n) for n in range(1, 10)]
+
 [4, 6, 8, 8, 12, 10, 16, 12, 12]
+
 
 
 #### Linked Lists ** Important and useful and interesting **
@@ -614,11 +641,15 @@ In fact, all values in Python are objects. That is, all values have behavior and
 Instances of primitive built-in values such as numbers are immutable. The values themselves cannot change over the course of program execution. Lists on the other hand are mutable.
 
 >>> chinese = ['coin', 'string', 'myriad']  # A list literal
+
 >>> suits = chinese                         # Two names refer to the same list
+
 As cards migrated to Europe (perhaps through Egypt), only the suit of coins remained in Spanish decks (oro).
 
 >>> suits.pop()             # Remove and return the final element
+
 'myriad'
+
 >>> suits.remove('string')  # Remove the first element that equals the argument
 
 Sharing and Identity. Because we have been changing a single list rather than creating new lists, the object bound to the name chinese has also changed, because it is the same list object that was bound to suits!
@@ -628,15 +659,20 @@ Sharing and Identity. Because we have been changing a single list rather than cr
 Lists can be copied using the list constructor function. Changes to one list do not affect another, unless they share structure.
 
 >>> nest = list(suits)  # Bind "nest" to a second list with the same elements
+
 >>> nest[0] = suits     # Create a nested list
 
 Two objects are identical if they are equal in their current value, and any change to one will always be reflected in the other. Identity is a stronger condition than equality.
 
 >>> suits is nest[0]
+
 True
 >>> suits is ['heart', 'diamond', 'spade', 'club']
+
 False
+
 >>> suits == ['heart', 'diamond', 'spade', 'club']
+
 True
 
 The final two comparisons illustrate the difference between is and ==. The former checks for identity, while the latter checks for the equality of contents.
@@ -656,10 +692,15 @@ A list comprehension always creates a new list. For example, the unicodedata mod
 A tuple, an instance of the built-in tuple type, is an immutable sequence. Tuples are created using a tuple literal that separates element expressions by commas. Parentheses are optional but used commonly in practice. Any objects can be placed within tuples.
 
 >>> 1, 2 + 3
+
 (1, 5)
+
 >>> ("the", 1, ("and", "only"))
+
 ('the', 1, ('and', 'only'))
+
 >>> type( (10, 20) )
+
 <class 'tuple'>
 
 Like lists, tuples have a finite length and support element selection. They also have a few methods that are also available for lists, such as count and index.
@@ -667,13 +708,21 @@ Like lists, tuples have a finite length and support element selection. They also
 Like lists, tuples have a finite length and support element selection. They also have a few methods that are also available for lists, such as count and index.
 
 >>> code = ("up", "up", "down", "down") + ("left", "right") * 2
+
 >>> len(code)
+
 8
+
 >>> code[3]
+
 'down'
+
 >>> code.count("down")
+
 2
+
 >>> code.index("left")
+
 4
 
 
@@ -686,6 +735,7 @@ However, the methods for manipulating the contents of a list are not available f
 While it is not possible to change which elements are in a tuple, it is possible to change the value of a mutable element contained within a tuple.
 
 1	nest = (10, 20, [30, 40])
+
 2	nest[2].pop()
 
 #### Dictionaries
@@ -693,9 +743,11 @@ While it is not possible to change which elements are in a tuple, it is possible
 Strings commonly serve as keys, because strings are our conventional representation for names of things. This dictionary literal gives the values of various Roman numerals.
 
 >>> numerals = {'I': 1.0, 'V': 5, 'X': 10}
+
 Looking up values by their keys uses the element selection operator that we previously applied to sequences.
 
 >>> numerals['X']
+
 10
 
 **A dictionary can have at most one value for each key. Adding new key-value pairs and changing the existing value for a key can both be achieved with assignment statements.**
@@ -715,13 +767,19 @@ Looking up values by their keys uses the element selection operator that we prev
     
 A useful method implemented by dictionaries is get, which returns either the value for a key, if the key is present, or a default value. The arguments to get are the key and the default value.
 
+
 >>> numerals.get('A', 0)
+
 0
+
 >>> numerals.get('V', 0)
+
 5
+
 Dictionaries also have a comprehension syntax analogous to those of lists. A key expression and a value expression are separated by a colon. Evaluating a dictionary comprehension creates a new dictionary object.
 
 >>> {x: x*x for x in range(3,6)}
+
 {3: 9, 4: 16, 5: 25}
 
 #### Local State
@@ -730,15 +788,15 @@ Lists and dictionaries have local state: they are changing values that have some
 
 An implementation of make_withdraw requires a new kind of statement: a nonlocal statement. When we call make_withdraw, we bind the name balance to the initial amount. We then define and return a local function, withdraw, which updates and returns the value of balance when called.
 
->>> def make_withdraw(balance):
-        """Return a withdraw function that draws down balance with each call."""
-        def withdraw(amount):
-            nonlocal balance                 # Declare the name "balance" nonlocal
-            if amount > balance:
-                return 'Insufficient funds'
-            balance = balance - amount       # Re-bind the existing balance name
-            return balance
-        return withdraw
+    >>> def make_withdraw(balance):
+            """Return a withdraw function that draws down balance with each call."""
+            def withdraw(amount):
+                nonlocal balance                 # Declare the name "balance" nonlocal
+                if amount > balance:
+                    return 'Insufficient funds'
+                balance = balance - amount       # Re-bind the existing balance name
+                return balance
+            return withdraw
         
 
 # 6. Week 6
@@ -769,14 +827,21 @@ An attribute of an object is a name-value pair associated with the object, which
 Functions that operate on the object or perform object-specific computations are called methods. The return values and side effects of a method can depend upon and change other attributes of the object. For example, deposit is a method of our Account object a. It takes one argument, the amount to deposit, changes the balance attribute of the object, and returns the resulting balance.
 
 >>> a.deposit(15)
+
 15
+
 We say that methods are invoked on a particular object. As a result of invoking the withdraw method, either the withdrawal is approved and the amount is deducted, or the request is declined and the method returns an error message.
 
 >>> a.withdraw(10)  # The withdraw method returns the balance after withdrawal
+
 5
+
 >>> a.balance       # The balance attribute has changed
+
 5
+
 >>> a.withdraw(10)
+
 'Insufficient funds'
 As illustrated above, the behavior of a method can depend upon the changing attributes of the object. Two calls to withdraw with the same argument return different results.
 
@@ -784,40 +849,40 @@ As illustrated above, the behavior of a method can depend upon the changing attr
 
 User-defined classes are created by class statements, which consist of a single clause. A class statement defines the class name, then includes a suite of statements to define the attributes of the class:
 
-class <name>:
-    <suite>
-        
->>> class Account:
-        def __init__(self, account_holder):
-            self.balance = 0
-            self.holder = account_holder
+    class <name>:
+        <suite>
+
+    >>> class Account:
+            def __init__(self, account_holder):
+                self.balance = 0
+                self.holder = account_holder
             
 Identity. Each new account instance has its own balance attribute, the value of which is independent of other objects of the same class.
 
->>> b = Account('Spock')
->>> b.balance = 200
->>> [acc.balance for acc in (a, b)]
-[0, 200]
+    >>> b = Account('Spock')
+    >>> b.balance = 200
+    >>> [acc.balance for acc in (a, b)]
+    [0, 200]
 
 
 Despite being constructed from identical calls, the objects bound to a and b are not the same. As usual, binding an object to a new name using assignment does not create a new object.
 
->>> c = a
->>> c is a
-True
+    >>> c = a
+    >>> c is a
+    True
 
->>> class Account:
-        def __init__(self, account_holder):
-            self.balance = 0
-            self.holder = account_holder
-        def deposit(self, amount):
-            self.balance = self.balance + amount
-            return self.balance
-        def withdraw(self, amount):
-            if amount > self.balance:
-                return 'Insufficient funds'
-            self.balance = self.balance - amount
-            return self.balance
+    >>> class Account:
+            def __init__(self, account_holder):
+                self.balance = 0
+                self.holder = account_holder
+            def deposit(self, amount):
+                self.balance = self.balance + amount
+                return self.balance
+            def withdraw(self, amount):
+                if amount > self.balance:
+                    return 'Insufficient funds'
+                self.balance = self.balance - amount
+                return self.balance
             
 
 #### Message Passing and Dot Expressions
@@ -828,13 +893,13 @@ True
 
 For example, we may want to implement a checking account, which is different from a standard account. A checking account charges an extra $1 for each withdrawal and has a lower interest rate. Here, we demonstrate the desired behavior.
 
->>> ch = CheckingAccount('Spock')
->>> ch.interest     # Lower interest rate for checking accounts
-0.01
->>> ch.deposit(20)  # Deposits are the same
-20
->>> ch.withdraw(5)  # withdrawals decrease balance by an extra charge
-14
+    >>> ch = CheckingAccount('Spock')
+    >>> ch.interest     # Lower interest rate for checking accounts
+    0.01
+    >>> ch.deposit(20)  # Deposits are the same
+    20
+    >>> ch.withdraw(5)  # withdrawals decrease balance by an extra charge
+    14
 A CheckingAccount is a specialization of an Account. In OOP terminology, the generic account will serve as the base class of CheckingAccount, while CheckingAccount will be a subclass of Account. (The terms parent class and superclass are also used for the base class, while child class is also used for the subclass.)
 
 A subclass inherits the attributes of its base class, but may override certain attributes, including certain methods. With inheritance, we only specify what is different between the subclass and the base class. Anything that we leave unspecified in the subclass is automatically assumed to behave just as it would for the base class.
@@ -845,39 +910,41 @@ Inheritance also has a role in our object metaphor, in addition to being a usefu
 
 First, we give a full implementation of the Account class, which includes docstrings for the class and its methods.
 
->>> class Account:
-        """A bank account that has a non-negative balance."""
-        interest = 0.02
-        def __init__(self, account_holder):
-            self.balance = 0
-            self.holder = account_holder
-        def deposit(self, amount):
-            """Increase the account balance by amount and return the new balance."""
-            self.balance = self.balance + amount
-            return self.balance
-        def withdraw(self, amount):
-            """Decrease the account balance by amount and return the new balance."""
-            if amount > self.balance:
-                return 'Insufficient funds'
-            self.balance = self.balance - amount
-            return self.balance
+    >>> class Account:
+            """A bank account that has a non-negative balance."""
+            interest = 0.02
+            def __init__(self, account_holder):
+                self.balance = 0
+                self.holder = account_holder
+            def deposit(self, amount):
+                """Increase the account balance by amount and return the new balance."""
+                self.balance = self.balance + amount
+                return self.balance
+            def withdraw(self, amount):
+                """Decrease the account balance by amount and return the new balance."""
+                if amount > self.balance:
+                    return 'Insufficient funds'
+                self.balance = self.balance - amount
+                return self.balance
+                
 A full implementation of CheckingAccount appears below. We specify inheritance by placing an expression that evaluates to the base class in parentheses after the class name.
 
->>> class CheckingAccount(Account):
-        """A bank account that charges for withdrawals."""
-        withdraw_charge = 1
-        interest = 0.01
-        def withdraw(self, amount):
-            return Account.withdraw(self, amount + self.withdraw_charge)
+    >>> class CheckingAccount(Account):
+            """A bank account that charges for withdrawals."""
+            withdraw_charge = 1
+            interest = 0.01
+            def withdraw(self, amount):
+                return Account.withdraw(self, amount + self.withdraw_charge)
+
 Here, we introduce a class attribute withdraw_charge that is specific to the CheckingAccount class. We assign a lower value to the interest attribute. We also define a new withdraw method to override the behavior defined in the Account class. With no further statements in the class suite, all other behavior is inherited from the base class Account.
 
->>> checking = CheckingAccount('Sam')
->>> checking.deposit(10)
-10
->>> checking.withdraw(5)
-4
->>> checking.interest
-0.01
+    >>> checking = CheckingAccount('Sam')
+    >>> checking.deposit(10)
+    10
+    >>> checking.withdraw(5)
+    4
+    >>> checking.interest
+    0.01
 
 
 
