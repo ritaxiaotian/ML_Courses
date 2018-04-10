@@ -1035,6 +1035,7 @@ We can create an Adder class that defines a __call__ method to provide the same 
             self.n = n
         def __call__(self, k):
             return self.n + k
+            
 >>> add_three_obj = Adder(3)
 >>> add_three_obj(4)
 7
@@ -1045,6 +1046,12 @@ Here, the Adder class behaves like the make_adder higher-order function, and the
 
 
 ## Lecture 18 Growth
+
+####  Measuring Efficiency
+
+#### Space
+
+
 
 # 8. Week 8
 
