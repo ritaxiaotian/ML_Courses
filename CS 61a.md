@@ -946,10 +946,102 @@ Here, we introduce a class attribute withdraw_charge that is specific to the Che
     >>> checking.interest
     0.01
 
+#### 2.5.7   Multiple Inheritance
+Python supports the concept of a subclass inheriting attributes from multiple base classes, a language feature called multiple inheritance.
 
+Suppose that we have a SavingsAccount that inherits from Account, but charges customers a small fee every time they make a deposit.
+
+>>> class SavingsAccount(Account):
+        deposit_charge = 2
+        def deposit(self, amount):
+            return Account.deposit(self, amount - self.deposit_charge)
+            
+Then, a clever executive conceives of an AsSeenOnTVAccount account with the best features of both CheckingAccount and SavingsAccount: withdrawal fees, deposit fees, and a low interest rate. It's both a checking and a savings account in one! "If we build it," the executive reasons, "someone will sign up and pay all those fees. We'll even give them a dollar."
+
+>>> class AsSeenOnTVAccount(CheckingAccount, SavingsAccount):
+        def __init__(self, account_holder):
+            self.holder = account_holder
+            self.balance = 1           # A free dollar!
+            
+In fact, this implementation is complete. Both withdrawal and deposits will generate fees, using the function definitions in CheckingAccount and SavingsAccount respectively.
+
+>>> such_a_deal = AsSeenOnTVAccount("John")
+
+>>> such_a_deal.balance
+1
+>>> such_a_deal.deposit(20)            # $2 fee from SavingsAccount.deposit
+19
+>>> such_a_deal.withdraw(5)            # $1 fee from CheckingAccount.withdraw
+13
+
+#### 2.5.8   The Role of Objects
 
 ## Lecture 17 Representation
 
+#### String Conversion
+
+####  Special Methods
+
+True and false values.
+
+>>> Account.__bool__ = lambda self: self.balance != 0
+We can call the bool constructor to see the truth value of an object, and we can use any object in a boolean context.
+
+>>> bool(Account('Jack'))
+False
+>>> if not Account('Jack'):
+        print('Jack has nothing')
+Jack has nothing
+Sequence operations. We have seen that we can call the len function to determine the length of a sequence.
+
+>>> len('Go Bears!')
+9
+The len function invokes the __len__ method of its argument to determine its length. All built-in sequence types implement this method.
+
+>>> 'Go Bears!'.__len__()
+9
+Python uses a sequence's length to determine its truth value, if it does not provide a __bool__ method. Empty sequences are false, while non-empty sequences are true.
+
+>>> bool('')
+False
+>>> bool([])
+False
+>>> bool('Go Bears!')
+True
+The __getitem__ method is invoked by the element selection operator, but it can also be invoked directly.
+
+>>> 'Go Bears!'[3]
+'B'
+>>> 'Go Bears!'.__getitem__(3)
+'B'
+
+
+Callable objects. In Python, functions are first-class objects, so they can be passed around as data and have attributes like any other object. Python also allows us to define objects that can be "called" like functions by including a __call__ method. With this method, we can define a class that behaves like a higher-order function.
+
+As an example, consider the following higher-order function, which returns a function that adds a constant value to its argument.
+
+>>> def make_adder(n):
+        def adder(k):
+            return n + k
+        return adder
+>>> add_three = make_adder(3)
+>>> add_three(4)
+7
+
+We can create an Adder class that defines a __call__ method to provide the same functionality.
+
+>>> class Adder(object):
+        def __init__(self, n):
+            self.n = n
+        def __call__(self, k):
+            return self.n + k
+>>> add_three_obj = Adder(3)
+>>> add_three_obj(4)
+7
+
+Here, the Adder class behaves like the make_adder higher-order function, and the add_three_obj object behaves like the add_three function. We have further blurred the line between data and functions.
+
+#### Multiple Representations
 
 
 ## Lecture 18 Growth
