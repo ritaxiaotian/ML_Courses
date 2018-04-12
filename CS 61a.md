@@ -1051,20 +1051,122 @@ Here, the Adder class behaves like the make_adder higher-order function, and the
 
 #### Space
 
+#### Orders of Growth
 
+ A useful way to analyze a process is to categorize it along with a group of processes that all have similar requirements. A useful categorization is the order of growth of a process, which expresses in simple terms how the resource requirements of a process grow as a function of the input.
+ 
+ #### Growth Categories
+ 
+ Constants. Constant terms do not affect the order of growth of a process. So, for instance, Θ(n) and Θ(500⋅n) are the same order of growth. This property follows from the definition of theta notation, which allows us to choose arbitrary constants k1 and k2 (such as 1500) for the upper and lower bounds. For simplicity, constants are always omitted from orders of growth.
+
+Logarithms. The base of a logarithm does not affect the order of growth of a process. For instance, log2n and log10n are the same order of growth. Changing the base of a logarithm is equivalent to multiplying by a constant factor.
+
+Nesting. When an inner computational process is repeated for each step in an outer process, then the order of growth of the entire process is a product of the number of steps in the outer and inner processes.
+
+Lower-order terms. As the input to a process grows, the fastest growing part of a computation dominates the total resources used. Theta notation captures this intuition. In a sum, all but the fastest growing term can be dropped without changing the order of growth.
+
+Category	Theta Notation	Growth Description	Example
+Constant	Θ(1)	Growth is independent of the input	abs
+Logarithmic	Θ(logn)	Multiplying input increments resources	fast_exp
+Linear	Θ(n)	Incrementing input increments resources	exp
+Quadratic	Θ(n2)	Incrementing input adds n resources	one_more
+Exponential	Θ(bn)	Incrementing input multiplies resources	fib
 
 # 8. Week 8
 
 ## Lecture 19 Composition
 
+Objects can have other objects as attribute values. When an object of some class has an attribute value of that same class, it is a recursive object.
 
+#### Linked List Class
 
+The built-in isinstance function returns whether the first argument has a type that is or inherits from the second argument. isinstance(rest, Link) is true if rest is a Link instance or an instance of some sub-class of Link.
+
+The Link class has the closure property. Just as an element of a list can itself be a list, a Link can contain a Link as its first element.
+
+Recursive functions are particularly well-suited to manipulate linked lists. For instance, the recursive extend_link function builds a linked list containing the elements of one Link instance s followed by the elements of another Link instance t. Installing this function as the __add__ method of the Link class emulates the addition behavior of a built-in list.
+
+>>> def extend_link(s, t):
+        if s is Link.empty:
+            return t
+        else:
+            return Link(s.first, extend_link(s.rest, t))
+>>> extend_link(s, s)
+Link(3, Link(4, Link(5, Link(3, Link(4, Link(5))))))
+>>> Link.__add__ = extend_link
+>>> s + s
+Link(3, Link(4, Link(5, Link(3, Link(4, Link(5))))))
+
+We follow the same recursive analysis of the problem as we did while counting: partitioning n using integers up to m involves either
+
+partitioning n-m using integers up to m, or partitioning n using integers up to m-1.
+
+For base cases, we find that 0 has an empty partition, while partitioning a negative integer or using parts smaller than 1 is impossible.
+
+>>> def partitions(n, m):
+        """Return a linked list of partitions of n using parts of up to m.
+        Each partition is represented as a linked list.
+        """
+        if n == 0:
+            return Link(Link.empty) # A list containing the empty partition
+        elif n < 0 or m == 0:
+            return Link.empty
+        else:
+            using_m = partitions(n-m, m)
+            with_m = map_link(lambda s: Link(m, s), using_m)
+            without_m = partitions(n, m-1)
+            return with_m + without_
 
 ## Lecture 20 Ordered Sets
 
+Sets as ordered sequences. One way to speed up our set operations is to change the representation so that the set elements are listed in increasing order. To do this, we need some way to compare two objects so that we can say which is bigger. In Python, many different types of objects can be compared using < and > operators, but we will concentrate on numbers in this example. We will represent a set of numbers by listing its elements in increasing order.
+
+One advantage of ordering shows up in set_contains: In checking for the presence of an object, we no longer have to scan the entire set. If we reach a set element that is larger than the item we are looking for, then we know that the item is not in the set:
+
+>>> def set_contains(s, v):
+        if empty(s) or s.first > v:
+            return False
+        elif s.first == v:
+            return True
+        else:
+            return set_contains(s.rest, v)
+>>> u = Link(1, Link(4, Link(5)))
+>>> set_contains(u, 0)
+False
+>>> set_contains(u, 4)
+True
 
 
 ## Lecture 21 Tree Sets
+
+Internal values. Previously, we defined trees in such a way that all values appeared at the leaves of the tree. It is also common to define trees that have internal values at the roots of each subtree. An internal value is called an entry in the tree. The Tree class below represents such trees, in which each tree has a sequence of branches that are also trees.
+
+>>> class Tree:
+        def __init__(self, entry, branches=()):
+            self.entry = entry
+            for branch in branches:
+                assert isinstance(branch, Tree)
+            self.branches = branches
+        def __repr__(self):
+            if self.branches:
+                return 'Tree({0}, {1})'.format(self.entry, repr(self.branches))
+            else:
+                return 'Tree({0})'.format(repr(self.entry))
+        def is_leaf(self):
+            return not self.branches
+The Tree class can represent, for instance, the values computed in an expression tree for the recursive implementation of fib, the function for computing Fibonacci numbers. The function fib_tree(n) below returns a Tree that has the nth Fibonacci number as its entry and a trace of all previously computed Fibonacci numbers within its branches.
+
+>>> def fib_tree(n):
+        if n == 1:
+            return Tree(0)
+        elif n == 2:
+            return Tree(1)
+        else:
+            left = fib_tree(n-2)
+            right = fib_tree(n-1)
+            return Tree(left.entry + right.entry, (left, right))
+>>> fib_tree(5)
+Tree(3, (Tree(1, (Tree(0), Tree(1))), Tree(2, (Tree(1), Tree(1, (Tree(0), Tree(1)))))))
 
 
 # 9. Week 9
