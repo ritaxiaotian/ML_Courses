@@ -107,7 +107,13 @@ Hadoop built-in sections:
 
 ## oozie: way of scheduling jobs on your cluster
 
-## Zookerrper:
+## Zookeeper: tech for coordinating things on your computer, across clusters
+
+## Data Ingesting: Tying your Hadoop database into a relational database: sqoop, flume: transform web logs in real time, kafka: data ingestion
+
+## External data storage: MySQL, cassandra, mongoDB
+
+## Query Engines: Apache Drill: write SQL queries to work in NoSQL environment, Hue, Phoenix, presto, apache zeppelin
 
 
 #### 1.4 Tips for using this course
