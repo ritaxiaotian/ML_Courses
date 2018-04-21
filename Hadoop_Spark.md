@@ -118,11 +118,26 @@ Hadoop built-in sections:
 
 #### 1.4 Tips for using this course
 
-
+http://sundog-education.com/hadoop-materials/
 
 ### Section 2 Using Hadoop's Core: HDFS and MapReduce
 
 #### 5 HDFS: What it is, and how it works
+
+The Hadoop distributed File system
+
+        1. Handle big files
+        
+        2. By breaking them into blogs
+        
+        3. stored across several commodity computers
+  
+The Hadoop distributed File system Architecture: name nodes and data nodes
+
+Reading a file: client node, name node, data node
+
+
+
 
 #### 6. Install the MovieLens dataset into HDFS using the command line
 
