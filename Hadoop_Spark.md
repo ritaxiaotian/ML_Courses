@@ -136,18 +136,79 @@ The Hadoop distributed File system Architecture: name nodes and data nodes
 
 Reading a file: client node, name node, data node
 
+1. Backup Metadata: 
+
+2.Secondary Namenode: maintains merged copy of edit log you can restore from
+
+3.HDFS Federation: Each namenode manages a specific namespace volume
+
+4.HDFS High Availability
+
+**5.Using HDFS: 1. UI(Ambarl) 2. Command-line Interface 3. HTTP/HDFS Proxies 4. Java interface 5. NFS Gateway**
+
+#### 6. Install the MovieLens dataset into HDFS using Ambarl
+
+http://127.0.0.1:8080/#/main/view/FILES/auto_files_instance
+
+#### 7. Install the MovieLens dataset into HDFS using the command line (ssh on Linux, putty on Windows)
+
+xiao@MachineLearning:~$ ssh maria_dev@127.0.0.1 -p 2222
+
+[maria_dev@sandbox-hdp ~]$ hadoop fs -ls
+
+[maria_dev@sandbox-hdp ~]$ hadoop fs -mkdir ml-100k
+
+[maria_dev@sandbox-hdp ~]$ hadoop fs -ls
+
+[maria_dev@sandbox-hdp ~]$ wget http://media.sundog-soft.com/hadoop/ml-100k/u.data
+
+[maria_dev@sandbox-hdp ~]$ hadoop fs -copyFromLocal u.data ml-100k/u.data
+
+[maria_dev@sandbox-hdp ~]$ hadoop fs -ls ml-100k
+
+[maria_dev@sandbox-hdp ~]$ hadoop fs -rm ml-100k/u.data
+
+[maria_dev@sandbox-hdp ~]$ hadoop fs -rmdir ml-100k
+
+[maria_dev@sandbox-hdp ~]$ hadoop fs -ls 
+
+#### 8. MapReduce:what it is and how it works
+
+Why Mapreduce
+
+    Distributes the processing of data on your cluster
+
+    Divides your data up into partitions that are mapped (transformed) and reduced (aggregated) by mapper and reducer functions you define.
+
+    Resilient to failure-an apllication master monitors your mappers and reducers on each partition
+    
+Illustrate with an example: How many movies did each user rate in the MovieLens data set?
+
+    1. Mapping: The mapper converts raw source data into key(user ID)/value (movies) pairs
+        
+        Mapper function: Extract and organize what we care about
+        
+        MapReduce Sorts and Groups the Mapped data ("shuffle and sort")
+        
+        The Reducer processes each Key's Values  
+
+#### 9. How MapReduce distributes processing
+
+1. Mapper 2. Shuffle and Sort 3. Reducer
+
+How are mappers and reducers written?
+
+Map reduce is natively Java
+
+STREAMING allows interfacing to other languages (ie python)
+
+Easy to parallel, trickes are used to be more efficient
+
+#### 10. MapReduce example: Break down movie ratings by rating score
 
 
 
-#### 6. Install the MovieLens dataset into HDFS using the command line
-
-#### 7. MapReduce:what it is and how it works
-
-#### 8. How MapReduce distributes processing
-
-#### 9. MapReduce example: Break down movie ratings by rating score
-
-#### 10. Troubleshooding tips: installing pip and mrjob
+#### 11. Troubleshooding tips: installing pip and mrjob
 
 #### 11. 
 
