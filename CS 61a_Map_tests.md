@@ -362,4 +362,309 @@ Choose the number of the correct choice:
 2) Group restaurants by latitude.
 3) Create a cluster for each centroid consisting of all elements closest to
    that centroid.
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 1 > Case 4
+(cases remaining: 5)
+
+Q: What is the second step of the iterative portion of the k-means
+algorithm?
+Choose the number of the correct choice:
+0) Randomly reassign centroids.
+1) Group restaurants by latitude.
+2) Find the centroid (average position) of each cluster.
+3) Create a cluster for each centroid consisting of all elements closest to
+   that centroid.
+? 2
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 2 > Case 1
+(cases remaining: 4)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 2 > Case 2
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 2 > Case 3
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 2 > Case 4
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 6 unlocked.
+
+---------------------------------------------------------------------
+Problem 7 > Suite 1 > Case 1
+(cases remaining: 6)
+
+Q: What does a predictor function returned by
+find_predictor do?
+Choose the number of the correct choice:
+0) returns the r_squared value
+1) takes in a restaurant and returns the predicted location of
+   that restaurant
+2) takes in a restaurant and returns the predicted rating for that
+   restaurant
+? 2
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 7 > Suite 1 > Case 2
+(cases remaining: 5)
+
+Q: What does the list xs represent?
+Choose the number of the correct choice:
+0) the restaurants in restaurants
+1) the restaurants reviewed by user
+2) the names of restaurants in restaurants
+3) the extracted feature value for each restaurant in restaurants
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 7 > Suite 1 > Case 3
+(cases remaining: 4)
+
+Q: What does the list ys represent?
+Choose the number of the correct choice:
+0) the names for the restaurants in restaurants
+1) user's ratings for the restaurants in restaurants
+2) the average rating for the restaurants in restaurants
+3) the names for the restaurants reviewed by user
+ 1
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 7 > Suite 2 > Case 1
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 7 > Suite 2 > Case 2
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 7 > Suite 2 > Case 3
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 7 unlocked.
+
+---------------------------------------------------------------------
+Problem 8 > Suite 1 > Case 1
+(cases remaining: 11)
+
+Q: In best_predictor, what does the variable reviewed represent?
+Choose the number of the correct choice:
+0) a list of ratings for restaurants reviewed by the user
+1) a list of restaurants reviewed by the user
+2) a list of all possible restaurants
+? 1
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 1 > Case 2
+(cases remaining: 10)
+
+Q: Given a user, a list of restaurants, and a feature function, what
+does find_predictor from Problem 7 return?
+Choose the number of the correct choice:
+0) a predictor function and its r_squared value
+1) a predictor function
+2) a restaurant
+3) an r_squared value
+? 0
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 1 > Case 3
+(cases remaining: 9)
+
+Q: After computing a list of [predictor, r_squared] pairs,
+which predictor should we select?
+Choose the number of the correct choice:
+0) the first predictor in the list
+1) the predictor with the highest r_squared value
+2) the predictor with the lowest r_squared value
+3) an arbitrary predictor
+? ? 1
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 2 > Case 1
+(cases remaining: 8)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 2 > Case 2
+(cases remaining: 7)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 2 > Case 3
+(cases remaining: 6)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 2 > Case 4
+(cases remaining: 5)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 3 > Case 1
+(cases remaining: 4)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 3 > Case 2
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 3 > Case 3
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 3 > Case 4
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 8 unlocked.
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+(cases remaining: 5)
+
+Q: rate_all returns a dictionary. What are the keys of this dictionary?
+Choose the number of the correct choice:
+0) restaurant ratings
+1) restaurant names
+2) restaurants
 ? 
+? 1
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 2
+(cases remaining: 4)
+
+Q: What are the values of the returned dictionary?
+Choose the number of the correct choice:
+0) numbers - mean restaurant ratings
+1) lists - list of all restaurant ratings
+2) numbers - a mix of user ratings and predicted ratings
+3) numbers - user ratings only
+4) numbers - predicted ratings only
+? 2
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 3
+(cases remaining: 3)
+
+Q: In rate_all, what does the variable reviewed represent?
+Choose the number of the correct choice:
+0) a list of restaurants reviewed by the user
+1) a list of ratings for restaurants reviewed by the user
+2) a list of all possible restaurants
+? 0
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 9 > Suite 2 > Case 1
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 9 > Suite 3 > Case 1
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 9 unlocked.
+
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 1
+(cases remaining: 5)
+
+Q: Given a restaurant, what does restaurant_categories in
+abstractions.py return?
+Choose the number of the correct choice:
+0) a list of numbers (ratings)
+1) a single string (category)
+2) a single number (rating)
+3) a list of strings (categories)
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 2
+(cases remaining: 4)
+
+Q: When does a restaurant match a search query?
+Choose the number of the correct choice:
+0) if the query string is mentioned in the restaurant's reviews
+1) if the query string is equal to the restaurant's categories
+2) if the query string is a substring of the restaurant's name
+3) if the query string is one of the restaurant's categories
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 3
+(cases remaining: 3)
+
+Q: What type of object does search return?
+Choose the number of the correct choice:
+0) a dictionary that maps restaurant names (strings) to restaurants
+1) a list of restaurants
+2) a dictionary that maps restaurant categories (strings) to restaurants
+3) a list of restaurant names (strings)
+? 1
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 2 > Case 1
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 3 > Case 1
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 10 unlocked.
