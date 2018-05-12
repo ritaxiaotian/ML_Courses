@@ -206,6 +206,15 @@ Easy to parallel, trickes are used to be more efficient
 
 #### 10. MapReduce example: Break down movie ratings by rating score
 
+###### Writing the Mapper
+
+def mapper_get_ratings(self, _, line):
+    (uerID, movieID, rating, timestamp) = line.split('\t')
+    yield rating, 1
+    
+###### Wrting the reducer
+def reducer_count_ratings(self, key, values):
+    yield key, sum(values)
 
 
 #### 11. Troubleshooding tips: installing pip and mrjob
@@ -215,3 +224,5 @@ Easy to parallel, trickes are used to be more efficient
 # 2. Udemy Spark and Python for Big Data with PySpark
 
 https://www.udemy.com/spark-and-python-for-big-data-with-pyspark/learn/v4/overview
+
+
