@@ -209,11 +209,15 @@ Easy to parallel, trickes are used to be more efficient
 ###### Writing the Mapper
 
 def mapper_get_ratings(self, _, line):
+
     (uerID, movieID, rating, timestamp) = line.split('\t')
+    
     yield rating, 1
     
 ###### Wrting the reducer
+
 def reducer_count_ratings(self, key, values):
+
     yield key, sum(values)
 
 
