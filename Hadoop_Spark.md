@@ -208,23 +208,96 @@ Easy to parallel, trickes are used to be more efficient
 
 ###### Writing the Mapper
 
-def mapper_get_ratings(self, _, line):
+    def mapper_get_ratings(self, _, line):
 
-    (uerID, movieID, rating, timestamp) = line.split('\t')
-    
-    yield rating, 1
+        (uerID, movieID, rating, timestamp) = line.split('\t')
+
+        yield rating, 1
     
 ###### Wrting the reducer
 
-def reducer_count_ratings(self, key, values):
+    def reducer_count_ratings(self, key, values):
 
-    yield key, sum(values)
+        yield key, sum(values)
 
 
 #### 11. Troubleshooding tips: installing pip and mrjob
 
-#### 11. 
 
+#### 12. Installing Python, MRjob, and nano
+
+**ssh maria_dev@127.0.0.1 -p 2222
+
+su root
+
+Password: 
+
+You are required to change your password immediately (root enforced)
+
+Changing password for root.
+
+(current) UNIX password: 
+
+New password: 
+
+Retype new password: 
+
+[root@sandbox-hdp maria_dev]# 
+
+[root@sandbox-hdp maria_dev]# yum install python-pip
+
+[root@sandbox-hdp maria_dev]# pip install mrjob==0.5.11
+
+[root@sandbox-hdp maria_dev]# yum install nano
+
+[root@sandbox-hdp maria_dev]# wget http://media.sundog-soft.com/hadoop/ml-100k/u.data
+
+[root@sandbox-hdp maria_dev]# wget http://media.sundog-soft.com/hadoop/RatingsBreakdown.py
+
+
+[root@sandbox-hdp maria_dev]# nano RatingsBreakdown.py
+
+#### 13. Code up the ratings histogram MapReduce job and run it
+
+1. run locally: - python RatingsBreakdown.py u.data
+
+2. run with Hadoop: - python RatingsBreakdown.py -r hadoop --hadoop-streaming-jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar u.data
+
+#### 14. Rank movies by their popularity
+
+
+
+
+#### 15. Check your results against mine
+
+
+
+### Section 3 Programming Hadoop with Pig
+
+
+### Section 4 Programming Hadoop with Spark
+
+### Section 5 Using relational data stores with Hadoop
+
+
+### Section 6 Using non-relational data stories with Hadoop
+
+
+### Section 7 Querying your data interactively
+
+
+### Section 8 Managing your Cluster
+
+
+### Section 9 Feeding Data to your Cluster
+
+
+### Section 10 Analyzing Streams of Data
+
+### Section 11 Designing Real-World Systems
+
+
+### Section 12  Learning more
 # 2. Udemy Spark and Python for Big Data with PySpark
 
 https://www.udemy.com/spark-and-python-for-big-data-with-pyspark/learn/v4/overview
