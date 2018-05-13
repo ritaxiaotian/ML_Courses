@@ -476,21 +476,21 @@ Some other functions and loaders
 
 Defining the problem
 
-■ Find all movies with an average rating less than 2.0
+    ■ Find all movies with an average rating less than 2.0
 
-■ Sort them by the total number of ratings
+    ■ Sort them by the total number of ratings
 
 #### 22. Pig Challenge: Compare Your Results to Mine!
 
 Hint
 
-■ We used everything you need in our earlier example of finding old movies with ratings greater than 4.0
+    ■ We used everything you need in our earlier example of finding old movies with ratings greater than 4.0
 
-■ Only new thing you need is COUNT(). This lets you count up the number of items in a bag.
+    ■ Only new thing you need is COUNT(). This lets you count up the number of items in a bag.
 
-– So just like you can say AVG(ratings.rating) to get the average rating from a bag of ratings
+    – So just like you can say AVG(ratings.rating) to get the average rating from a bag of ratings
 
-– You can say COUNT(ratings.rating) to get the total number of ratings for a given group’s bag.
+    – You can say COUNT(ratings.rating) to get the total number of ratings for a given group’s bag.
 
 ### Section 4 Programming Hadoop with Spark
 
