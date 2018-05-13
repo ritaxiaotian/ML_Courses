@@ -313,9 +313,13 @@ Use PigStorage if you need a different delimiter
     DUMP metadata;
     
 (1,Toy Story (1995),01-Jan-1995,,http://us.imdb.com/M/title-exact?Toy%20Story%20(1995))
+
 (2,GoldenEye (1995),01-Jan-1995,,http://us.imdb.com/M/title-exact?GoldenEye%20(1995))
+
 (3,Four Rooms (1995),01-Jan-1995,,http://us.imdb.com/M/title-exact?Four%20Rooms%20(1995))
+
 (4,Get Shorty (1995),01-Jan-1995,,http://us.imdb.com/M/title-exact?Get%20Shorty%20(1995))
+
 (5,Copycat (1995),01-Jan-1995,,http://us.imdb.com/M/title-exact?Copycat%20(1995))
 
 Creating a relation from another relation; FOREACH / GENERATE
@@ -346,9 +350,13 @@ Group By
     DUMP avgRatings;
 
 (1,3.8783185840707963)
+
 (2,3.2061068702290076)
+
 (3,3.033333333333333)
+
 (4,3.550239234449761)
+
 (5,3.302325581395349)
 
     DESCRIBE ratings;
@@ -390,7 +398,20 @@ fiveStarsWithData: {fiveStarMovies::movieID: int,fiveStarMovies::avgRating: doub
 
 (23,4.1208791208791204,23,Taxi Driver (1976),824428800)
 
+ORDER BY
 
+    oldestFiveStarMovies = ORDER fiveStarsWithData BY nameLookup::releaseTime;
+    DUMP oldestFiveStarMovies;
+
+(493,4.15,493,Thin Man, The (1934),-1136073600)
+
+(604,4.012345679012346,604,It Happened One Night (1934),-1136073600)
+
+(615,4.0508474576271185,615,39 Steps, The (1935),-1104537600)
+
+(1203,4.0476190476190474,1203,Top Hat (1935),-1104537600)
+
+Putting it all together
 
 #### 19. Find old 5-star movies with Pig
 
