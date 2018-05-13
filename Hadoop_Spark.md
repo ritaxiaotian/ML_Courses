@@ -276,9 +276,28 @@ Retype new password:
 
 http://127.0.0.1:8080/#/main/dashboard/metrics
 
-#### 17. Introducing Pig
+#### 17. Introducing Apache Pig
+
+**Enable you to use mapreducer without having to write map and reducer code**
+
+Why Pig?
+
+1. Writing mappers and reducers by hand takes a long time
+
+2. Pig introduces Pig Latin, a scripting language that lets you use SQL-like syntax to define your map and reduce steps.
+
+3. Highly extensible with user defined functions (UDF's)
+
+Methods to run Pig
+
+1. Grunt
+
+2. Script
+
+3. Ambari/Hue
 
 #### 18. Example: Find the oldest movie with a 5-star rating using Pig
+
 
 #### 19. Find old 5-star movies with Pig
 
