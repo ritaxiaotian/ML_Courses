@@ -298,30 +298,135 @@ Methods to run Pig
 
 #### 18. Example: Find the oldest movie with a 5-star rating using Pig
 
+Ratings = LOAD '/user/maria_dev/ml-100k/u.data' AS (userID:int, movieID:int, rating:int, ratingTime:int);
+
+This creates a relation named "ratings" with a given schema. ( a series of tuples)
+
+    (660,229,2,891406212)
+    (412,489,4,892241344)
+            ...
+Use PigStorage if you need a different delimiter
+
+    metadata = LOAD '/user/maria_dev/ml-100k/u.item' USING PigStorage('|')AS (movieID:int, movieTitle:chararray,
+    releaseDate:chararray, videoRelease:chararray, imdbLink:chararray);
+    
+    DUMP metadata;
+    
+(1,Toy Story (1995),01-Jan-1995,,http://us.imdb.com/M/title-exact?Toy%20Story%20(1995))
+(2,GoldenEye (1995),01-Jan-1995,,http://us.imdb.com/M/title-exact?GoldenEye%20(1995))
+(3,Four Rooms (1995),01-Jan-1995,,http://us.imdb.com/M/title-exact?Four%20Rooms%20(1995))
+(4,Get Shorty (1995),01-Jan-1995,,http://us.imdb.com/M/title-exact?Get%20Shorty%20(1995))
+(5,Copycat (1995),01-Jan-1995,,http://us.imdb.com/M/title-exact?Copycat%20(1995))
+
+Creating a relation from another relation; FOREACH / GENERATE
+
+    metadata = LOAD '/user/maria_dev/ml-100k/u.item' USING PigStorage('|') AS (movieID:int, movieTitle:chararray, releaseDate:chararray, videoRelease:chararray, imdbLink:chararray);
+
+    nameLookup = FOREACH metadata GENERATE movieID, movieTitle, ToUnixTime(ToDate(releaseDate, 'dd-MMM-yyyy')) AS releaseTime;
+
+
+(1,Toy Story (1995),01-Jan-1995,,http://us.imdb.com/M/title-exact?Toy%20Story%20(1995))
+
+to
+
+(1,Toy Story (1995),788918400)
+
+Group By
+
+    ratingsByMovie = GROUP ratings BY movieID;
+
+    DUMP ratingsByMovie;
+
+(1,{(807,1,4,892528231),(554,1,3,876231938),(49,1,2,888068651), ... }
+
+(2,{(429,2,3,882387599),(551,2,2,892784780),(774,2,1,888557383), ... }
+
+    avgRatings = FOREACH ratingsByMovie GENERATE group AS movieID, AVG(ratings.rating) AS avgRating;
+
+    DUMP avgRatings;
+
+(1,3.8783185840707963)
+(2,3.2061068702290076)
+(3,3.033333333333333)
+(4,3.550239234449761)
+(5,3.302325581395349)
+
+    DESCRIBE ratings;
+    DESCRIBE ratingsByMovie;
+    DESCRIBE avgRatings;
+    ratings: {userID: int,movieID: int,rating: int,ratingTime: int}
+    ratingsByMovie: {group: int,ratings: {(userID: int,movieID: int,rating: int,ratingTime: int)}}
+    avgRatings: {movieID: int,avgRating: double}
+    
+FILTER
+
+    fiveStarMovies = FILTER avgRatings BY avgRating > 4.0;
+
+(12,4.385767790262173)
+
+(22,4.151515151515151)
+
+(23,4.1208791208791204)
+
+(45,4.05)
+
+JOIN
+
+    DESCRIBE fiveStarMovies;
+    DESCRIBE nameLookup;
+    fiveStarsWithData = JOIN fiveStarMovies BY movieID, nameLookup BY movieID;
+    DESCRIBE fiveStarsWithData;
+    DUMP fiveStarsWithData;
+    
+fiveStarMovies: {movieID: int,avgRating: double}
+
+nameLookup: {movieID: int,movieTitle: chararray,releaseTime: long}
+
+fiveStarsWithData: {fiveStarMovies::movieID: int,fiveStarMovies::avgRating: double,nameLookup::movieID:int,nameLookup::movieTitle: chararray,nameLookup::releaseTime: long}
+
+(12,4.385767790262173,12,Usual Suspects, The (1995),808358400)
+
+(22,4.151515151515151,22,Braveheart (1995),824428800)
+
+(23,4.1208791208791204,23,Taxi Driver (1976),824428800)
+
+
 
 #### 19. Find old 5-star movies with Pig
 
+
 #### 20 More Pig Latin
+
 
 #### 21. Find the most rated one star movie
 
+
 #### 22. Pig Challenge: Compare Your Results to Mine!
+
 
 ### Section 4 Programming Hadoop with Spark
 
+
 #### 23. Why Spark
+
 
 #### 24. The Resilient Distributed Dataset (RDD)
 
+
 #### 25. Find the movie with the lowest average rating - with RDD's
+
 
 #### 26.Datasets and Spark 2.0
 
+
 #### 27. Find the movie with the lowest average rating -- with DataFrames
+
 
 #### 28.Movie recommendations with MLLib
 
+
 #### 29. Filter the lowest-rated movies by number of ratings
+
 
 #### 30. Check your results against mine
 
