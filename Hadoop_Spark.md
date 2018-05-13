@@ -265,39 +265,69 @@ Retype new password:
 
 #### 14. Rank movies by their popularity
 
-
-
-
 #### 15. Check your results against mine
 
-
+[root@sandbox-hdp maria_dev]# wget http://media.sundog-soft.com/hadoop/TopMovies.py
 
 ### Section 3 Programming Hadoop with Pig
 
+#### 16. Introducing Ambari
+
+http://127.0.0.1:8080/#/main/dashboard/metrics
+
+#### 17. Introducing Pig
+
+#### 18. Example: Find the oldest movie with a 5-star rating using Pig
+
+#### 19. Find old 5-star movies with Pig
+
+#### 20 More Pig Latin
+
+#### 21. Find the most rated one star movie
+
+#### 22. Pig Challenge: Compare Your Results to Mine!
 
 ### Section 4 Programming Hadoop with Spark
 
+
+
 ### Section 5 Using relational data stores with Hadoop
+
+
 
 
 ### Section 6 Using non-relational data stories with Hadoop
 
 
+
+
 ### Section 7 Querying your data interactively
+
+
 
 
 ### Section 8 Managing your Cluster
 
 
+
+
 ### Section 9 Feeding Data to your Cluster
 
 
+
+
 ### Section 10 Analyzing Streams of Data
+
+
+
 
 ### Section 11 Designing Real-World Systems
 
 
 ### Section 12  Learning more
+
+
+
 # 2. Udemy Spark and Python for Big Data with PySpark
 
 https://www.udemy.com/spark-and-python-for-big-data-with-pyspark/learn/v4/overview
