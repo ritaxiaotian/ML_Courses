@@ -65,9 +65,9 @@ World of Hadoop: Query Engines. Core HadoopEcosystem, External Data storage
 
 Hadoop built-in sections:
  
-#### HDFS: Hadoop Distributed File System (Distributed data storage)
+**HDFS: Hadoop Distributed File System (Distributed data storage)**
  
-#### YARN: Yet another resource negotiator: 
+**YARN: Yet another resource negotiator:** 
 
     Data processing starts to come into play
     
@@ -75,23 +75,23 @@ Hadoop built-in sections:
     
     Which nodes are available for extra work, etc.
     
-#### MapReduce: High level programming model that allows you to process your data across an entire cluster
+**MapReduce: High level programming model that allows you to process your data across an entire cluster**
 
     mappers: transform your data in parallel across your entir computing cluster in a very efficient manner
     
     reducers: aggregate that data together
     
-#### Others:
+**Others:
 
-#### Pig: write simple scripts that look a lot like SQL in some cases that allow you to chain together queries and get complex answers but without actually writing Python or Java code.
+**Pig: write simple scripts that look a lot like SQL in some cases that allow you to chain together queries and get complex answers but without actually writing Python or Java code.
 
-#### Hive: Taking SQL queried and making this distributed data that is just really sitting on your file system somewhere look like a SQL database
+**Hive: Taking SQL queried and making this distributed data that is just really sitting on your file system somewhere look like a SQL database
 
-#### Apache Ambari: sits on top of everything, gives your a view of your cluster and lets you visualize what's running on your cluster , what systems are using how much resources and also has some views in it that allow you to actually do things like execute hive queried or import databases into hive or execute Pig queries and things like that.
+**Apache Ambari: sits on top of everything, gives your a view of your cluster and lets you visualize what's running on your cluster , what systems are using how much resources and also has some views in it that allow you to actually do things like execute hive queried or import databases into hive or execute Pig queries and things like that.
 
-#### MESOS: Alternative to YARN, solve same problems in the same way
+**MESOS: Alternative to YARN, solve same problems in the same way
 
-#### SPARK: One of the most exciting technique in Hadoop system. Same level of mapreduce. Write Spark script in Python or Java or Scala.Scala being prefered. Fast and powerful!!
+**SPARK: One of the most exciting technique in Hadoop system. Same level of mapreduce. Write Spark script in Python or Java or Scala.Scala being prefered. Fast and powerful!!
 
     Handle SQL queries
     
@@ -99,21 +99,21 @@ Hadoop built-in sections:
     
     Handle streaming data in real time
 
-#### TEZ: use some of the same techniques as SPARK notably with something that is called a directed acyclic graph and this gives Tez a leg up on what map reduce does. Used in conjunction with Hive to accelerate it.
+**TEZ: use some of the same techniques as SPARK notably with something that is called a directed acyclic graph and this gives Tez a leg up on what map reduce does. Used in conjunction with Hive to accelerate it.
 
-#### HBASE: NoSQL database: a very very fast database meant for very large transaction rates. It's appropriate for example for hitting from a web application, hitting from a website doing all types of transaction. So HBase can actually expose the data that's stored on your cluster and maybe that data was transformed in some way by spark or mapreduce.
+**HBASE: NoSQL database: a very very fast database meant for very large transaction rates. It's appropriate for example for hitting from a web application, hitting from a website doing all types of transaction. So HBase can actually expose the data that's stored on your cluster and maybe that data was transformed in some way by spark or mapreduce.
 
-#### Apache Storm: process streaming data from censors and web logs in real time. == Spark streaming
+**Apache Storm: process streaming data from censors and web logs in real time. == Spark streaming
 
-#### oozie: way of scheduling jobs on your cluster
+**oozie: way of scheduling jobs on your cluster
 
-#### Zookeeper: tech for coordinating things on your computer, across clusters
+**Zookeeper: tech for coordinating things on your computer, across clusters
 
-#### Data Ingesting: Tying your Hadoop database into a relational database: sqoop, flume: transform web logs in real time, kafka: data ingestion
+**Data Ingesting: Tying your Hadoop database into a relational database: sqoop, flume: transform web logs in real time, kafka: data ingestion
 
-#### External data storage: MySQL, cassandra, mongoDB
+**External data storage: MySQL, cassandra, mongoDB
 
-#### Query Engines: Apache Drill: write SQL queries to work in NoSQL environment, Hue, Phoenix, presto, apache zeppelin
+**Query Engines: Apache Drill: write SQL queries to work in NoSQL environment, Hue, Phoenix, presto, apache zeppelin
 
 
 #### 1.4 Tips for using this course
