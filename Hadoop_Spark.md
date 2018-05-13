@@ -2,7 +2,7 @@
 
 https://www.udemy.com/the-ultimate-hands-on-hadoop-tame-your-big-data/learn/v4/overview
 
-### Section 1 Learn all the buzzwords and install hadoop
+## Section 1 Learn all the buzzwords and install hadoop
 
 #### 1.1 Introduction and install hadoop on your desktop
 
@@ -120,7 +120,7 @@ Hadoop built-in sections:
 
 http://sundog-education.com/hadoop-materials/
 
-### Section 2 Using Hadoop's Core: HDFS and MapReduce
+## Section 2 Using Hadoop's Core: HDFS and MapReduce
 
 #### 5 HDFS: What it is, and how it works
 
@@ -269,7 +269,8 @@ Retype new password:
 
 [root@sandbox-hdp maria_dev]# wget http://media.sundog-soft.com/hadoop/TopMovies.py
 
-### Section 3 Programming Hadoop with Pig
+
+## Section 3 Programming Hadoop with Pig
 
 #### 16. Introducing Ambari
 
@@ -289,6 +290,21 @@ http://127.0.0.1:8080/#/main/dashboard/metrics
 
 ### Section 4 Programming Hadoop with Spark
 
+#### 23. Why Spark
+
+#### 24. The Resilient Distributed Dataset (RDD)
+
+#### 25. Find the movie with the lowest average rating - with RDD's
+
+#### 26.Datasets and Spark 2.0
+
+#### 27. Find the movie with the lowest average rating -- with DataFrames
+
+#### 28.Movie recommendations with MLLib
+
+#### 29. Filter the lowest-rated movies by number of ratings
+
+#### 30. Check your results against mine
 
 
 ### Section 5 Using relational data stores with Hadoop
