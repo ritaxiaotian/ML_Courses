@@ -411,74 +411,88 @@ ORDER BY
 
 (1203,4.0476190476190474,1203,Top Hat (1935),-1104537600)
 
+
+#### 19. Find old 5-star movies with Pig
+
 Putting it all together
 
 **run it much more quickly by running it on Tez**
 
-#### 19. Find old 5-star movies with Pig
+#### 20 More Pig Latin
 
 Pig Latin: Diving Deeper
 
 Things you can do to a relation
 
-■ LOAD STORE DUMP
+    ■ LOAD STORE DUMP
 
-– STORE ratings INTO ‘outRatings’ USING PigStorage(‘:’);
+    – STORE ratings INTO ‘outRatings’ USING PigStorage(‘:’);
 
-■ FILTER DISTINCT FOREACH/GENERATE MAPREDUCE STREAM SAMPLE
+    ■ FILTER DISTINCT FOREACH/GENERATE MAPREDUCE STREAM SAMPLE
 
-■ JOIN COGROUP GROUP CROSS CUBE
+    ■ JOIN COGROUP GROUP CROSS CUBE
 
-■ ORDER RANK LIMIT
+    ■ ORDER RANK LIMIT
 
-■ UNION SPLIT
+    ■ UNION SPLIT
 
 
 Diagnostics
 
-■ DESCRIBE
+    ■ DESCRIBE
 
-■ EXPLAIN
+    ■ EXPLAIN
 
-■ ILLUSTRATE
+    ■ ILLUSTRATE
 
 UDF’s
 
-■ REGISTER
+    ■ REGISTER
 
-■ DEFINE
+    ■ DEFINE
 
-■ IMPORT
+    ■ IMPORT
 
 Some other functions and loaders
 
-■ AVG CONCAT COUNT MAX
+    ■ AVG CONCAT COUNT MAX
 
-■ PigStorage
+    ■ PigStorage
 
-■ TextLoader
+    ■ TextLoader
 
-■ JsonLoader
+    ■ JsonLoader
 
-■ AvroStorage
+    ■ AvroStorage
 
-■ ParquetLoader
+    ■ ParquetLoader
 
-■ OrcStorage
+    ■ OrcStorage
 
-■ HBaseStorage
-
-#### 20 More Pig Latin
+    ■ HBaseStorage
 
 
 #### 21. Find the most rated one star movie
 
+Defining the problem
+
+■ Find all movies with an average rating less than 2.0
+
+■ Sort them by the total number of ratings
 
 #### 22. Pig Challenge: Compare Your Results to Mine!
 
+Hint
+
+■ We used everything you need in our earlier example of finding old movies with ratings greater than 4.0
+
+■ Only new thing you need is COUNT(). This lets you count up the number of items in a bag.
+
+– So just like you can say AVG(ratings.rating) to get the average rating from a bag of ratings
+
+– You can say COUNT(ratings.rating) to get the total number of ratings for a given group’s bag.
 
 ### Section 4 Programming Hadoop with Spark
-
 
 #### 23. Why Spark
 
