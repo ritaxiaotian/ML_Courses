@@ -413,8 +413,60 @@ ORDER BY
 
 Putting it all together
 
+**run it much more quickly by running it on Tez**
+
 #### 19. Find old 5-star movies with Pig
 
+Pig Latin: Diving Deeper
+
+Things you can do to a relation
+
+■ LOAD STORE DUMP
+
+– STORE ratings INTO ‘outRatings’ USING PigStorage(‘:’);
+
+■ FILTER DISTINCT FOREACH/GENERATE MAPREDUCE STREAM SAMPLE
+
+■ JOIN COGROUP GROUP CROSS CUBE
+
+■ ORDER RANK LIMIT
+
+■ UNION SPLIT
+
+
+Diagnostics
+
+■ DESCRIBE
+
+■ EXPLAIN
+
+■ ILLUSTRATE
+
+UDF’s
+
+■ REGISTER
+
+■ DEFINE
+
+■ IMPORT
+
+Some other functions and loaders
+
+■ AVG CONCAT COUNT MAX
+
+■ PigStorage
+
+■ TextLoader
+
+■ JsonLoader
+
+■ AvroStorage
+
+■ ParquetLoader
+
+■ OrcStorage
+
+■ HBaseStorage
 
 #### 20 More Pig Latin
 
