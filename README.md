@@ -1,5 +1,5 @@
-Completed and ongoing Machine Learning Courses from Coursera/Udemy/Udacity/Stanford/UCB/Harvard etc..
+Completed and ongoing Data Science Courses from Coursera/Stanford/UCB/Harvard/Udacity/Udemy etc..
 
-Completed and ongoing Machine Learning Books
+Completed and ongoing Data Science Books
 
 # Life is short. Let's Learn.
