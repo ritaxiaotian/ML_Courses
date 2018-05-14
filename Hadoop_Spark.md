@@ -496,24 +496,280 @@ Hint
 
 #### 23. Why Spark
 
+What is spark?
+
+■ "A fast and general engine for large-scale data processing"
+
+It's scalable
+
+It's fast
+
+■ "Run programs up to 100x faster than Hadoop MapReduce in memory, or 10x faster on disk."
+
+■ DAG Engine (directed acyclic graph) optimizes workflows
+
+It's hot
+
+■ Amazon
+
+■ Ebay: log analysis and aggregation
+
+■ NASA JPL: Deep Space Network
+
+■ Groupon
+
+■ TripAdviser
+
+■ Yahoo
+
+■ Many others:
+
+https://cwiki.apache.org/confluence/display/SPARK/Powered+By+Spark
+
+It's not that hard
+
+■ Code in Python, Java, or Scala
+
+■ Built around one main concept: the Resilient Distributed Dataset (RDD)
+
+Components of spark:
+
+    Spark Streaming
+    Spark SQL
+    MLLib
+    SPARK CORE
+    GraphX
+
+■ Why Python?
+
+- It’s a lot simpler, and this is just an overview.
+
+- Don’t need to compile anything, deal with JAR’s, dependencies, etc
+
+■ But...
+
+– Spark itself is written in Scala
+
+– Scala’s functional programming model is a good fit for distributed processing
+
+– Gives you fast performance (Scala compiles to Java bytecode)
+
+– Less code & boilerplate stuff than Java
+
+– Python is slow in comparison
 
 #### 24. The Resilient Distributed Dataset (RDD)
 
+The SparkContext
+
+■ Created by your driver program
+
+■ Is responsible for making RDD's resilient and distributed!
+
+■ Creates RDD's
+
+■ The Spark shell creates a "sc" object for you
+
+Creating RDD's
+
+■ nums = parallelize([1, 2, 3, 4])
+
+■ sc.textFile("file:///c:/users/frank/gobs-o-text.txt")
+
+– or s3n:// , hdfs://
+
+■ hiveCtx = HiveContext(sc) rows = hiveCtx.sql("SELECT name, age FROM users")
+
+■ Can also create from:
+
+JDBC
+
+Cassandra
+
+HBase
+
+Elastisearch
+
+JSON, CSV, sequence files, object files, various compressed formats
+
+Transforming RDD's
+
+    ■ map
+    ■ flatmap
+    ■ filter
+    ■ distinct
+    ■ sample
+    ■ union, intersection, subtract, cartesian
+    
+map example
+
+    ■ rdd = sc.parallelize([1, 2, 3, 4])
+    ■ squaredRDD = rdd.map(lambda x: x*x)
+    ■ This yields 1, 4, 9, 16
+
+What’s that lambda thing?
+
+    Many RDD methods accept a function as a parameter
+    
+    rdd.map(lambda x: x*x)
+    
+    Is the same thing as
+    
+    def squareIt(x):
+        return x*x
+        
+    rdd.map(squareIt)
+    
+There, you now understand functional programming.
+
+RDD actions
+
+    ■ collect
+    ■ count
+    ■ countByValue
+    ■ take
+    ■ top
+    ■ reduce
+    ■ ... and more ...
+
+Lazy evaluation
+
+    ■ Nothing actually happens in your driver program until an action is called!
 
 #### 25. Find the movie with the lowest average rating - with RDD's
 
+    LowestRatedMovieSpark.py
+    
+[maria_dev@sandbox-hdp ~]$ ls
+
+RatingsBreakdown.py  TopMovies.py  u.data  u.data.1
+
+[maria_dev@sandbox-hdp ~]$ mkdir ml-100k
+
+[maria_dev@sandbox-hdp ~]$ cd ml-100k/
+
+[maria_dev@sandbox-hdp ml-100k]$ wget http://media.sundog-soft.com/hadoop/ml-100k/u.item
+
+[maria_dev@sandbox-hdp ~]$ wget http://media.sundog-soft.com/hadoop/Spark.zip
+
+[maria_dev@sandbox-hdp ~]$ unzip Spark.zip 
+
+[maria_dev@sandbox-hdp ~]$ less LowestRatedMovieSpark.py 
+
+[maria_dev@sandbox-hdp ~]$ spark-submit LowestRatedMovieSpark.py 
 
 #### 26.Datasets and Spark 2.0
 
+Working with structured data
+
+■ Extends RDD to a "DataFrame" object
+
+■ DataFrames:
+
+– Contain Row objects
+
+– Can run SQL queries
+
+– Has a schema (leading to more efficient storage)
+
+– Read and write to JSON, Hive, parquet
+
+– Communicates with JDBC/ODBC, Tableau
+
+Using SparkSQL in Python
+
+■ from pyspark.sql import SQLContext, Row
+
+■ hiveContext = HiveContext(sc)
+
+■ inputData = spark.read.json(dataFile)
+
+■ inputData.createOrReplaceTempView("myStructuredStuff")
+
+■ myResultDataFrame = hiveContext.sql("""SELECT foo FROM bar ORDER BY foobar""")
+
+Other stuff you can do with dataframes
+
+■ myResultDataFrame.show()
+
+■ myResultDataFrame.select("someFieldName")
+
+■ myResultDataFrame.filter(myResultDataFrame("someFieldName" > 200)
+
+■ myResultDataFrame.groupBy(myResultDataFrame("someFieldName")).mean()
+
+■ myResultDataFrame.rdd().map(mapperFunction)
+
+Datasets
+
+■ In Spark 2.0, a DataFrame is really a DataSet of Row objects
+
+■ DataSets can wrap known, typed data too. But this is mostly transparent to you in Python, since Python is dynamically typed.
+
+■ So – don’t sweat this too much with Python. But the Spark 2.0 way is to use DataSets instead of DataFrames when you can.
+
+Shell access
+
+■ Spark SQL exposes a JDBC/ODBC server (if you built Spark with Hive support)
+
+■ Start it with sbin/start-thriftserver.sh
+
+■ Listens on port 10000 by default
+
+■ Connect using bin/beeline -u jdbc:hive2://localhost:10000
+
+■ Viola, you have a SQL shell to Spark SQL
+
+■ You can create new tables, or query existing ones that were cached using hiveCtx.cacheTable("tableName")
+
+User-defined functions (UDF's)
+
+    from pyspark.sql.types import IntegerType
+
+    hiveCtx.registerFunction("square", lambda x: x*x, IntegerType())
+
+    df = hiveCtx.sql("SELECT square('someNumericFiled') FROM tableName)
 
 #### 27. Find the movie with the lowest average rating -- with DataFrames
 
+[maria_dev@sandbox-hdp ~]$ less LowestRatedMovieDataFrame.py 
 
-#### 28.Movie recommendations with MLLib
+[maria_dev@sandbox-hdp ~]$ export SPARK_MARJOR_VERSION=2
 
+[maria_dev@sandbox-hdp ~]$ spark-submit LowestRatedMovieDataFrame.py 
+
+#### 28.Movie recommendations with MLLib （Machine Learning Algorithm）
+
+    from pyspark.sql import SparkSession
+    from pyspark.ml.recommendation import ALS
+    from pyspark.sql import Row
+    from pyspark.sql.functions import lit
+
+[maria_dev@sandbox-hdp ~]$ spark-submit MovieRecommendationsALS.py 
 
 #### 29. Filter the lowest-rated movies by number of ratings
 
+The problem
+
+■ Our examples of finding the lowest-rated movies were polluted with movies only rated by one or two people.
+
+■ Modify one or both of these scripts to only consider movies with at least ten ratings.
+
+Hints
+
+■ RDD’s have a filter() function you can use
+
+– It takes a function as a parameter, which accepts the entire key/value pair
+
+So if you’re calling filter() on an RDD that contains (movieID, (sumOfRatings, totalRatings)) – a lambda function that takes in “x” would refer to totalRatings as x[1][1]. x[1] gives us the “value” (sumOfRatings, totalRatings) and x[1][1] pulls out totalRatings.
+
+This function should be an expression that returns True if the row should be kept, or False if it should be discarded
+
+■ DataFrames also have a filter() function
+
+– It’s easier – you just pass in a string expression for what you want to filter on.
+
+– For example: df.filter(“count > 10”) would only pass through rows where the “count” column is greater than 10.
 
 #### 30. Check your results against mine
 
